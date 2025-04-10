@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Add Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hello there👋 I'm Jansen</h1>
+            <div class="button-container">
+                <button class="bouncy-button primary" onclick="scrollToSection('about')">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front"><i class="fas fa-user"></i> About Me</span>
+                </button>
+                <button class="bouncy-button secondary" onclick="scrollToSection('projects')">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front"><i class="fas fa-code"></i> My Projects</span>
+                </button>
+                <button class="bouncy-button tertiary" onclick="scrollToSection('contact')">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front"><i class="fas fa-envelope"></i> Contact</span>
+                </button>
+            </div>
+        </header>
+
+        <section id="about" class="about">
+            <h2 class="section-title">About Me</h2>
+            <p>
+              Hi👋 my name Jesus Jansen Lee , a web developer passionate about creating functional, beautiful websites 🌐. Currently pursuing a BSIT degree 🎓 with specialization on Web and Mobile Apps📱 at FEU Institute of Technology. Skilled in HTML, CSS, JavaScript, and modern frameworks 💻. A quick learner 🚀, always eager to tackle new challenges and collaborate with others 🤝.
+            </p>
+            <div class="button-container">
+                <button class="bouncy-button" onclick="window.open('Resume.pdf', '_blank')">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front"><i class="fas fa-file-pdf"></i> Download Resume</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="prjctimg/unicon.png" alt="Project 1" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">UniCon</h3>
+                        <p>A thesis project progress report tracker with live chatting feature.</p>
+                        <p>Technologies: HTML, CSS, JavaScript, Laravel</p>
+                        <button class="bouncy-button" onclick="window.open('https://github.com/senzj/UniCon', '_blank')">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front"><i class="fab fa-github"></i> View Repository</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="prjctimg/trailventure.png" alt="Project 2" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Trailventure</h3>
+                        <p>An e-commerce online shopping platform mainly selling camping equipments.</p>
+                        <p>Technologies: HTML, CSS, JavaScript, ReactJS</p>
+                        <button class="bouncy-button" onclick="window.open('https://github.com/senzj/Trailventure', '_blank')">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front"><i class="fab fa-github"></i> View Repository</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="prjctimg/expense_tracker.png" alt="Project 3" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Expense Tracker</h3>
+                        <p>A Basic Expense tracker that list down your expenses and calculate the total amount you spent.</p>
+                        <p>Technologies: Python</p>
+                        <button class="bouncy-button" onclick="window.open('https://github.com/senzj/Expense-Tracker', '_blank')">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front"><i class="fab fa-github"></i> View Repository</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="button-container">
+              
+              <!-- <button class="bouncy-button" onclick="window.location.href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=janseeeenleeee@gmail.com'" target="_blank"></button> -->
+
+              <button class="bouncy-button" onclick="window.location.href='mailto:janseeeenleeee@gmail.com'">
+                  <span class="shadow"></span>
+                  <span class="edge"></span>
+                  <span class="front"><i class="fas fa-envelope"></i> Email Me</span>
+              </button>
+
+              <button class="bouncy-button primary" onclick="window.open('https://linkedin.com/in/jansnlee', '_blank')">
+                  <span class="shadow"></span>
+                  <span class="edge"></span>
+                  <span class="front"><i class="fab fa-linkedin"></i> LinkedIn</span>
+              </button>
+
+              <button class="bouncy-button secondary" onclick="window.open('https://github.com/senzj', '_blank')">
+                  <span class="shadow"></span>
+                  <span class="edge"></span>
+                  <span class="front"><i class="fab fa-github"></i> GitHub</span>
+              </button>
+                
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for section navigation
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+/* Typography updates for better readability */
+
+/* Update base font */
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Paragraph styling */
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 1.2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* All headings styling */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    color: #222;
+    line-height: 1.3;
+}
+
+/* Main heading */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.about {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Section titles */
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: -0.3px;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+/* Project info text */
+.project-info p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    max-width: 100%;
+}
+
+/* Project titles */
+.project-title {
+    font-size: 1.5rem;
+    margin-top: 0;
+    color: #333;
+}
+
+/* Replace your existing bouncy button and animation styles with these updated versions */
+
+/* Multiple floating animations with different timing */
+@keyframes float1 {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float2 {
+  0% { transform: translateY(-1px); }
+  60% { transform: translateY(2px); }
+  100% { transform: translateY(-1px); }
+}
+
+@keyframes float3 {
+  0% { transform: translateY(1px); }
+  45% { transform: translateY(-2px); }
+  100% { transform: translateY(1px); }
+}
+
+/* Updated bouncy button styles with push effect structure */
+.bouncy-button {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    margin: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Apply different animations to buttons based on their position */
+.button-container .bouncy-button:nth-child(1) {
+    animation: float1 3.5s ease-in-out infinite;
+}
+
+.button-container .bouncy-button:nth-child(2) {
+    animation: float2 4.2s ease-in-out infinite;
+}
+
+.button-container .bouncy-button:nth-child(3) {
+    animation: float3 3.8s ease-in-out infinite;
+}
+
+/* For buttons outside of button-container, EXCEPT those in project cards */
+.bouncy-button:not(.button-container .bouncy-button):not(.project-info .bouncy-button) {
+    animation: float2 4s ease-in-out infinite;
+}
+
+/* Prevent project card buttons from floating */
+.project-info .bouncy-button {
+    animation: none;
+}
+
+.bouncy-button:hover {
+    animation: none !important;
+    filter: brightness(110%);
+    /* Ensure button stabilizes on hover */
+    transform: translateY(0);
+}
+
+.bouncy-button .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.bouncy-button .edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    /* Fix gradients to scale properly with button */
+    background-size: 100% 100%;
+}
+
+.bouncy-button .front {
+    display: block;
+    position: relative;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    background: #3498db;
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+/* Push effect on hover */
+.bouncy-button:hover .front {
+    transform: translateY(-6px);
+    transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.bouncy-button:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+}
+
+.bouncy-button:hover .shadow {
+    transform: translateY(4px);
+    transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.bouncy-button:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+}
+
+/* Define color schemes for primary, secondary and tertiary buttons */
+.bouncy-button.primary .edge {
+    background: linear-gradient(
+        to left,
+        hsl(210deg 100% 26%) 0%,
+        hsl(210deg 100% 32%) 8%,
+        hsl(210deg 100% 32%) 92%,
+        hsl(210deg 100% 26%) 100%
+    );
+    background-size: 100% 100%;
+}
+
+.bouncy-button.primary .front {
+    background: #3498db;
+}
+
+.bouncy-button.secondary .edge {
+    background: linear-gradient(
+        to left,
+        hsl(150deg 100% 16%) 0%,
+        hsl(150deg 100% 22%) 8%,
+        hsl(150deg 100% 22%) 92%,
+        hsl(150deg 100% 16%) 100%
+    );
+    background-size: 100% 100%;
+}
+
+.bouncy-button.secondary .front {
+    background: #2ecc71;
+}
+
+.bouncy-button.tertiary .edge {
+    background: linear-gradient(
+        to left,
+        hsl(280deg 100% 26%) 0%,
+        hsl(280deg 100% 32%) 8%,
+        hsl(280deg 100% 32%) 92%,
+        hsl(280deg 100% 26%) 100%
+    );
+    background-size: 100% 100%;
+}
+
+.bouncy-button.tertiary .front {
+    background: #9b59b6;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+    .projects {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .bouncy-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+}

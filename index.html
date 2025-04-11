@@ -136,13 +136,14 @@
 
         <section>
             <center>
-                <button class="bouncy-button">
+                <button class="bouncy-button spam-button">
                     <span class="shadow"></span>
-                    <span class="edge"></span>
+                    <span class="edge spam-button"></span>
                     <span class="front spam-button"><i class="fa-solid fa-star"></i> Button that does nothing <i class="fa-solid fa-star"></i></span>
                 </button>
             </center>
         </section>
+        
     </div>
 
     <script>
@@ -159,24 +160,39 @@
 
         // randomly assign floating animations on different buttons
         const buttons = document.querySelectorAll('.button-container .bouncy-button');
-        const animations = ['float1', 'float2', 'float3', 'float4'];
+        const animations = ['float1', 'float2', 'float3', 'float4', 'float5', 'float6'];
 
         buttons.forEach(button => {
             // random animation
             const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
             // Assign the animation as an inline style
             button.style.animation = `${randomAnimation} 3s ease-in-out infinite`;
-            // console.log(`Assigned ${randomAnimation} to ${button.innerText}`);
+            console.log(`Assigned ${randomAnimation} to ${button.innerText}`);
         });
 
         // spam button that changes color
         const spamButton = document.querySelector('.spam-button');
-        let colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#A133FF', '#FF33D4'];
+        const spamEdge = document.querySelector('.edge.spam-button');
+        const spamFront = document.querySelector('.front.spam-button');
+
+        let colors = ['#3498db', '#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#A133FF', '#FF33D4']; // Lighter variants for front
+        let edgeColors = ['#00437A', '#DD4522', '#22DD46', '#2246DD', '#DD2290', '#9022DD', '#DD22C3']; // Darker variants for edges
+
         let currentColorIndex = 0;
         spamButton.addEventListener('click', () => {
             currentColorIndex = (currentColorIndex + 1) % colors.length;
-            spamButton.style.backgroundColor = colors[currentColorIndex];
-            spamButton.style.color = '#fff'; // Change text color to white
+            spamFront.style.backgroundColor = colors[currentColorIndex];
+            spamEdge.style.backgroundColor = edgeColors[currentColorIndex];
+            spamFront.style.color = '#fff';
+            console.log(`Spam button color changed to ${colors[currentColorIndex]}`);
+        });
+
+        // Initialize the spam button colors on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Set initial colors for the spam button
+            spamFront.style.backgroundColor = colors[0]; // Using the first color in your array
+            spamEdge.style.backgroundColor = edgeColors[0]; // Using the first edge color
+            spamFront.style.color = '#fff';
         });
 
     </script>

@@ -109,13 +109,13 @@ h1 {
 /* Multiple floating animations with different timing */
 @keyframes float1 {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(1px); }
+  50% { transform: translateY(-2px); }
   100% { transform: translateY(0px); }
 }
 
 @keyframes float2 {
   0% { transform: translateY(-1px); }
-  60% { transform: translateY(-2px); }
+  60% { transform: translateY(2px); }
   100% { transform: translateY(-1px); }
 }
 
@@ -127,13 +127,19 @@ h1 {
 
 @keyframes float4 {
     0% { transform: translateY(1px); }
-    45% { transform: translateY(-2px); }
+    45% { transform: translateY(3px); }
     100% { transform: translateY(1px); }
   }
 
 @keyframes float5 {
     0% { transform: translateY(1px); }
-    45% { transform: translateY(3px); }
+    45% { transform: translateY(4px); }
+    100% { transform: translateY(1px); }
+  }
+
+  @keyframes float6 {
+    0% { transform: translateY(1px); }
+    45% { transform: translateY(-4px); }
     100% { transform: translateY(1px); }
   }
 

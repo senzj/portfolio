@@ -24,80 +24,308 @@
                     <span class="edge"></span>
                     <span class="front"><i class="fas fa-user"></i> About Me</span>
                 </button>
-                <button class="bouncy-button secondary" onclick="scrollToSection('projects')">
+
+                <button class="bouncy-button secondary" onclick="scrollToSection('certificates')">
                     <span class="shadow"></span>
                     <span class="edge"></span>
-                    <span class="front"><i class="fas fa-code"></i> My Projects</span>
+                    <span class="front"><i class="fas fa-certificate"></i> Certifications</span>
                 </button>
-                <button class="bouncy-button tertiary" onclick="scrollToSection('contact')">
+
+                <button class="bouncy-button tertiary" onclick="scrollToSection('projects')">
                     <span class="shadow"></span>
                     <span class="edge"></span>
-                    <span class="front"><i class="fas fa-envelope"></i> Contact</span>
+                    <span class="front"><i class="fas fa-code"></i> Projects</span>
                 </button>
+
+                <button class="bouncy-button quarternary" onclick="scrollToSection('contact')">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front"><i class="fas fa-envelope"></i> Contacts</span>
+                </button>
+
             </div>
         </header>
 
         <section id="about" class="about">
             <h2 class="section-title">About Me</h2>
             <p>
-              Hi👋 my name Jesus Jansen Lee , a web developer passionate about creating functional, beautiful websites 🌐. Currently pursuing a BSIT degree 🎓 with specialization on Web and Mobile Apps📱 at FEU Institute of Technology. Skilled in HTML, CSS, JavaScript, and modern frameworks 💻. A quick learner 🚀, always eager to tackle new challenges and collaborate with others 🤝.
+              Hi👋 my name Jesus Jansen Lee , a web developer passionate about creating functional, beautiful websites 🌐. Currently pursuing a BSIT degree 🎓 with specialization on Web and Mobile Apps📱 at FEU Institute of Technology. 
+              I am skilled at HTML, CSS, JavaScript, and modern frameworks such as Laravel and ReactJS. I am also a quick learner 🚀, always eager to tackle new challenges and collaborate with others 🤝.
             </p>
             <div class="button-container">
-                <button class="bouncy-button primary" onclick="window.open('Resume.pdf', '_blank')">
+                <button class="bouncy-button quinary" onclick="window.open('files/Resume.pdf', '_blank')">
                     <span class="shadow"></span>
                     <span class="edge"></span>
-                    <span class="front"><i class="fas fa-file-pdf"></i> View Resume</span>
+                    <span class="front"><i class="fas fa-id-card"></i> View Resume</span>
                 </button>
             </div>
         </section>
 
-        <section id="projects">
+        <section id="certificates">
+            <h2 class="section-title">My Certifications</h2>
+            <div class="cert-toggle">
+                <button id="toggleViewBtn"><i class="fas fa-bars"></i> Carousel view</i></button>
+            </div>
+
+            <div class="certificates-wrapper">
+                <div class="scroll-content">
+                    <!-- Certificate 1 -->
+                    <div class="certificate-card">
+                        <h3 class="cert-title">PMI Project Management Ready™</h3>
+                        <p class="cert-meta"><strong>Issued by: </strong>Project Management Institute</p>
+                        <p class="cert-meta"><strong>Issued Date: </strong>March 27, 2025</p>
+                        <a href="https://www.credly.com/badges/8c97d98a-0c22-408c-886b-a98ca14de608/public_url" target="_blank" rel="noopener noreferrer" class="bouncy-button primary link-button">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front">
+                                <i class="fas fa-external-link-alt"></i> Verify
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Certificate 2 -->
+                    <div class="certificate-card">
+                        <h3 class="cert-title">IT Specialist - Cybersecurity</h3>
+                        <p class="cert-meta"><strong>Issued by: </strong>Certiport</p>
+                        <p class="cert-meta"><strong>Issued Date: </strong>March 26, 2025</p>
+                        <a href="https://www.credly.com/badges/78734f13-eb2d-48f0-935a-4ec04f656fe6/public_url" target="_blank" rel="noopener noreferrer" class="bouncy-button secondary link-button">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front">
+                                <i class="fas fa-external-link-alt"></i> Verify
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Certificate 3 -->
+                    <div class="certificate-card">
+                        <h3 class="cert-title">CCNA: Enterprise Networking, Security, and Automation</h3>
+                        <p class="cert-meta"><strong>Issued by: </strong>Cisco Networking Academy</p>
+                        <p class="cert-meta"><strong>Issued Date: </strong>December 05, 2023</p>
+                        <a href="https://www.credly.com/badges/916c8abb-e10d-4150-930b-2e5bf1f26448/public_url" target="_blank" rel="noopener noreferrer" class="bouncy-button tertiary link-button">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front">
+                                <i class="fas fa-external-link-alt"></i> Verify
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Certificate 4 -->
+                    <div class="certificate-card">
+                        <h3 class="cert-title">CCNA: Switching, Routing, and Wireless Essentials</h3>
+                        <p class="cert-meta"><strong>Issued by: </strong>Cisco Networking Academy</p>
+                        <p class="cert-meta"><strong>Issued Date: </strong>September 13, 2023</p>
+                        <a href="https://www.credly.com/badges/1ac06572-09dd-43b7-ad16-1601178c3c58/public_url" target="_blank" rel="noopener noreferrer" class="bouncy-button quarternary link-button">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front">
+                                <i class="fas fa-external-link-alt"></i> Verify
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Certificate 5 -->
+                    <div class="certificate-card">
+                        <h3 class="cert-title">IT Specialist - Networking</h3>
+                        <p class="cert-meta"><strong>Issued by: </strong>Certiport</p>
+                        <p class="cert-meta"><strong>Issued Date: </strong>July 13, 2023</p>
+                        <a href="https://www.credly.com/badges/0c4ce166-8e80-4850-a362-10b281d6f416/public_url" target="_blank" rel="noopener noreferrer" class="bouncy-button quinary link-button">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front">
+                                <i class="fas fa-external-link-alt"></i> Verify
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Certificate 6 -->
+                    <div class="certificate-card">
+                        <h3 class="cert-title">CCNA: Introduction to Networks</h3>
+                        <p class="cert-meta"><strong>Issued by: </strong>Cisco Networking Academy</p>
+                        <p class="cert-meta"><strong>Issued Date: </strong>April 16, 2023</p>
+                        <a href="https://www.credly.com/badges/a76f9acb-a43b-4ba3-8099-70e938057c22/public_url" target="_blank" rel="noopener noreferrer" class="bouncy-button secondary link-button">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front">
+                                <i class="fas fa-external-link-alt"></i> Verify
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Certificate 7 -->
+                    <div class="certificate-card">
+                        <h3 class="cert-title">HSK (Level 4)</h3>
+                        <p class="cert-meta"><strong>Issued by: </strong>Confucius Institute Headquarters</p>
+                        <p class="cert-meta"><strong>Issued Date: </strong>September 22, 2019</p>
+                        <button class="bouncy-button primary" onclick="window.open('files/HSK4.pdf', '_blank')">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front"><i class="fas fa-file-pdf"></i> View</span>
+                        </button>
+                    </div>
+
+                    <!-- Certificate 8 -->
+                    <div class="certificate-card">
+                        <h3 class="cert-title">NDG Linux Essentials</h3>
+                        <p class="cert-meta"><strong>Issued by: </strong>Cisco Networking Academy</p>
+                        <p class="cert-meta"><strong>Issued Date: </strong>May 17, 2024</p>
+                        <button class="bouncy-button spam-button">
+                            <span class="shadow"></span>
+                            <span class="edge spam-button"></span>
+                            <span class="front spam-button">Not Available</span>
+                        </button>
+                    </div>
+
+                    <!-- Certificate 9 -->
+                    <div class="certificate-card">
+                        <h3 class="cert-title">DevNet Associate</h3>
+                        <p class="cert-meta"><strong>Issued by: </strong>Cisco Networking Academy</p>
+                        <p class="cert-meta"><strong>Issued Date: </strong>April 27, 2024</p>
+                        <button class="bouncy-button spam-button">
+                            <span class="shadow"></span>
+                            <span class="edge spam-button"></span>
+                            <span class="front spam-button">Not Available</span>
+                        </button>
+                    </div>
+
+                    <!-- Certificate  -->
+                    <!-- <div class="certificate-card">
+                        <h3 class="cert-title"></h3>
+                        <p class="cert-meta"><strong>Issued by: </strong></p>
+                        <p class="cert-meta"><strong>Issued Date: </strong></p>
+                        <a href="" target="_blank" rel="noopener noreferrer" class="bouncy-button primary link-button">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front">
+                                <i class="fas fa-external-link-alt"></i> Verify
+                            </span>
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
             <h2 class="section-title">My Projects</h2>
+
             <div class="projects">
                 <!-- Project 1 -->
-                <div class="project-card">
-                    <img src="prjctimg/unicon.png" alt="Project 1" class="project-image">
+                <article class="project-card">
+                    <img src="prjctimg/unicon.png" alt="UniCon screenshot" class="project-image">
+
                     <div class="project-info">
                         <h3 class="project-title">UniCon</h3>
-                        <p>A thesis project progress report tracker with live chatting feature.</p>
-                        <p>Technologies: HTML, CSS, JavaScript, Laravel</p>
-                        <button class="bouncy-button primary" onclick="window.open('https://github.com/senzj/UniCon', '_blank')">
-                            <span class="shadow"></span>
-                            <span class="edge"></span>
-                            <span class="front"><i class="fab fa-github"></i> View Repository</span>
-                        </button>
+
+                        <p class="project-description" data-short>
+                            This project is our Project Management final project, which we developed a thesis project progress report tracker with live chatting feature.
+                        </p>
+
+                        <ul class="tech-list">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>TailwindCSS</li>
+                            <li>JavaScript</li>
+                            <li>Laravel</li>
+                            <li>MySQL</li>
+                        </ul>
+
+                        <div class="card-footer">
+                            <a class="bouncy-button primary link-button" href="https://github.com/senzj/UniCon" target="_blank" rel="noopener noreferrer" aria-label="View UniCon repository">
+                                <span class="shadow" aria-hidden="true"></span>
+                                <span class="edge" aria-hidden="true"></span>
+                                <span class="front"><i class="fab fa-github" aria-hidden="true"></i> View Repository</span>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Project 2 -->
-                <div class="project-card">
-                    <img src="prjctimg/trailventure.png" alt="Project 2" class="project-image">
+                <article class="project-card">
+                    <img src="prjctimg/trailventure.png" alt="Trailventure screenshot" class="project-image">
+
                     <div class="project-info">
                         <h3 class="project-title">Trailventure</h3>
-                        <p>An e-commerce online shopping platform mainly selling camping equipments.</p>
-                        <p>Technologies: HTML, CSS, JavaScript, ReactJS</p>
-                        <button class="bouncy-button primary" onclick="window.open('https://github.com/senzj/Trailventure', '_blank')">
-                            <span class="shadow"></span>
-                            <span class="edge"></span>
-                            <span class="front"><i class="fab fa-github"></i> View Repository</span>
-                        </button>
+
+                        <p class="project-description" data-short>
+                            This E-commerce final project focuses on selling camping equipment. It includes product browsing, add-to-cart, checkout and an admin panel for product management — inspired by Lazada and Shopee but niche-focused.
+                        </p>
+
+                        <ul class="tech-list">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>ReactJS</li>
+                            <li>TailwindCSS</li>
+                            <li>Firebase</li>
+                        </ul>
+
+                        <div class="card-footer">
+                            <a class="bouncy-button primary link-button" href="https://github.com/senzj/Trailventure" target="_blank" rel="noopener noreferrer" aria-label="View Trailventure repository">
+                                <span class="shadow" aria-hidden="true"></span>
+                                <span class="edge" aria-hidden="true"></span>
+                                <span class="front"><i class="fab fa-github" aria-hidden="true"></i> View Repository</span>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Project 3 -->
-                <div class="project-card">
-                    <img src="prjctimg/expense_tracker.png" alt="Project 3" class="project-image">
+                <article class="project-card">
+                    <img src="prjctimg/expense_tracker.png" alt="Expense Tracker screenshot" class="project-image">
+
                     <div class="project-info">
                         <h3 class="project-title">Expense Tracker</h3>
-                        <p>A Basic Expense tracker that list down your expenses and calculate the total amount you spent.</p>
-                        <p>Technologies: Python</p>
-                        <button class="bouncy-button primary" onclick="window.open('https://github.com/senzj/Expense-Tracker', '_blank')">
-                            <span class="shadow"></span>
-                            <span class="edge"></span>
-                            <span class="front"><i class="fab fa-github"></i> View Repository</span>
-                        </button>
+
+                        <p class="project-description" data-short>
+                            A basic expense tracker that lists expenses down your expenses and calculates your total expenses by month and year.
+                        </p>
+
+                        <ul class="tech-list">
+                            <li>Python</li>
+                            <li>SQLite</li>
+                        </ul>
+
+                        <div class="card-footer">
+                            <a class="bouncy-button primary link-button" href="https://github.com/senzj/Expense-Tracker" target="_blank" rel="noopener noreferrer" aria-label="View Expense Tracker repository">
+                                <span class="shadow" aria-hidden="true"></span>
+                                <span class="edge" aria-hidden="true"></span>
+                                <span class="front"><i class="fab fa-github" aria-hidden="true"></i> View Repository</span>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card">
+                    <img src="prjctimg/MVS.png" alt="Grocery Store Management System screenshot" class="project-image">
+
+                    <div class="project-info">
+                        <h3 class="project-title">Grocery Store Management System</h3>
+
+                        <p class="project-description" data-short>
+                        POS system for a small grocery business — product & price listing, employee management, delivery orders and order tracking.
+                        </p>
+
+                        <ul class="tech-list">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>TailwindCSS</li>
+                            <li>Livewire</li>
+                            <li>Laravel</li>
+                            <li>MySQL</li>
+                        </ul>
+
+                        <div class="card-footer">
+                            <a class="bouncy-button primary link-button" href="https://github.com/senzj/MVS" target="_blank" rel="noopener noreferrer" aria-label="View MVS repository">
+                                <span class="shadow" aria-hidden="true"></span>
+                                <span class="edge" aria-hidden="true"></span>
+                                <span class="front"><i class="fab fa-github" aria-hidden="true"></i> View Repository</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -105,12 +333,22 @@
             <h2 class="section-title">Contact Me</h2>
             <div class="button-container">
               
-              <!-- <button class="bouncy-button" onclick="window.location.href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=janseeeenleeee@gmail.com'" target="_blank"></button> -->
+              <button class="bouncy-button quinary" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=janseeeenleeee@gmail.com', '_blank')">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front"><i class="fab fa-google"></i> Gmail Me</span>
+              </button>
 
-              <button class="bouncy-button tertiary" onclick="window.location.href='mailto:janseeeenleeee@gmail.com'">
+              <button class="bouncy-button secondary" onclick="window.location.href='mailto:janseeeenleeee@gmail.com'">
                   <span class="shadow"></span>
                   <span class="edge"></span>
                   <span class="front"><i class="fas fa-envelope"></i> Email Me</span>
+              </button>
+
+              <button class="bouncy-button tertiary" onclick="window.open('https://github.com/senzj', '_blank')">
+                  <span class="shadow"></span>
+                  <span class="edge"></span>
+                  <span class="front"><i class="fab fa-github"></i> GitHub</span>
               </button>
 
               <button class="bouncy-button primary" onclick="window.open('https://linkedin.com/in/jansnlee', '_blank')">
@@ -119,22 +357,22 @@
                   <span class="front"><i class="fab fa-linkedin"></i> LinkedIn</span>
               </button>
 
-              <button class="bouncy-button primary" onclick="window.open('https://www.facebook.com/seeeeeeenz', '_blank')">
+              <button class="bouncy-button quarternary" onclick="window.open('https://www.facebook.com/seeeeeeenz', '_blank')">
                 <span class="shadow"></span>
                 <span class="edge"></span>
                 <span class="front"><i class="fab fa-facebook"></i> Facebook</span>
               </button>
 
-              <button class="bouncy-button secondary" onclick="window.open('https://github.com/senzj', '_blank')">
+              <!-- <button class="bouncy-button primary" onclick="window.open('https://paraverse.feutech.edu.ph/briefcase/profile/175011202T', '_blank')">
                   <span class="shadow"></span>
                   <span class="edge"></span>
-                  <span class="front"><i class="fab fa-github"></i> GitHub</span>
-              </button>
+                  <span class="front"><i class="fas fa-briefcase"></i> FEU Briefcase</span>
+              </button> -->
               
             </div>
         </section>
 
-        <section>
+        <!-- <section>
             <center>
                 <button class="bouncy-button spam-button">
                     <span class="shadow"></span>
@@ -150,10 +388,11 @@
                     <span class="front"><i class="fa-solid fa-star"></i> Button that does nothing <i class="fa-solid fa-star"></i></span>
                 </button>
             </center>
-        </section>
+        </section> -->
         
     </div>
 
+    <!-- script -->
     <script>
         // scrolling for section navigation
         function scrollToSection(sectionId) {
@@ -166,6 +405,35 @@
             }
         }
 
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.querySelector(".certificates-wrapper");
+            const toggleBtn = document.getElementById("toggleViewBtn");
+
+            const scrollContent = document.querySelector(".scroll-content");
+            
+            // Clone cards for infinite effect
+            const clones = scrollContent.innerHTML;
+            scrollContent.innerHTML += clones;
+
+            // Mark cloned children
+            const cards = scrollContent.children;
+            for (let i = cards.length / 2; i < cards.length; i++) {
+                cards[i].classList.add("clone");
+            }
+
+            // Toggle grid / carousel view
+            toggleBtn.addEventListener("click", () => {
+                container.classList.toggle("grid");
+
+                if (container.classList.contains("grid")) {
+                toggleBtn.innerHTML = "<i class='fas fa-border-all'></i> Grid View";
+                } else {
+                toggleBtn.innerHTML = "<i class='fas fa-bars'></i> Carousel View";
+                }
+            });
+        });
+
+
         // randomly assign floating animations on different buttons
         const buttons = document.querySelectorAll('.button-container .bouncy-button');
         const animations = ['float1', 'float2', 'float3', 'float4', 'float5', 'float6'];
@@ -174,8 +442,7 @@
             // random animation
             const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
             // Assign the animation as an inline style
-            button.style.animation = `${randomAnimation} 3s ease-in-out infinite`;
-            console.log(`Assigned ${randomAnimation} to ${button.innerText}`);
+            button.style.animation = `${randomAnimation} 3.5s ease-in-out infinite`;
         });
 
         // spam button that changes color
@@ -204,5 +471,6 @@
         });
 
     </script>
+
 </body>
 </html>

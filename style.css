@@ -62,46 +62,264 @@ h1 {
     letter-spacing: -0.3px;
 }
 
+
+/* Certificates Section */
+#certificates {
+  padding: 2rem 1rem;
+}
+
+.certificates-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 1rem;
+  user-select: none;
+  overflow-x: hidden;
+}
+
+/* Gradient overlays */
+.certificates-wrapper::before,
+.certificates-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 5rem;
+  z-index: 1;
+  pointer-events: none; 
+}
+
+/* Left fade */
+.certificates-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.833), transparent);
+  border-radius: 10px;
+}
+
+/* Right fade */
+.certificates-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.833), transparent);
+  border-radius: 10px;
+}
+
+/* Certificate Card */
+.certificate-card {
+  flex: 0 0 250px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-height: 200px;
+}
+
+.certificate-card .bouncy-button,
+.certificate-card button {
+  margin-top: auto;
+  align-self: center;
+}
+
+.cert-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0 0 0.3rem 0;
+  color: #333;
+}
+
+.cert-meta {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: left;
+}
+
+/* Toggle button styling */
+.cert-toggle {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+#toggleViewBtn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#toggleViewBtn:hover {
+  background: #0056b3;
+}
+
+/* VIEW MODES */
+/* --- Carousel mode --- */
+.scroll-content {
+  display: flex;
+  gap: 1rem;
+  animation: scrollLeft 55s linear infinite;
+  width: max-content;
+}
+
+.scroll-content::after {
+  content: attr(data-duplicate); /* placeholder attribute */
+  display: flex;
+  gap: 1rem;
+}
+
+/* Keyframes: scroll entire content width */
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* --- Grid mode --- */
+.certificates-wrapper.grid .scroll-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  animation: none;
+}
+
+/* Remove gradient in grid mode */
+.certificates-wrapper.grid::before,
+.certificates-wrapper.grid::after {
+  display: none;
+}
+
+/* Hide duplicates in grid mode */
+.certificates-wrapper.grid .certificate-card.clone {
+  display: none;
+}
+
+
+
+/* projects section */
+/* projects Grid */
 .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
-.project-card {
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+:root{
+  --card-bg: #fff;
+  --surface-shadow: rgba(12,18,35,0.08);
+  --primary: #3498db;
+  --primary-dark: hsl(210 100% 28%);
+  --radius: 10px;
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
+/* Card layout */
+.project-card{
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px var(--surface-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .28s ease, box-shadow .28s ease;
 }
 
-.project-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+/* lift on hover */
+.project-card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 14px 32px rgba(12,18,35,0.12);
 }
 
-.project-info {
-    padding: 1.5rem;
+.project-image{
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  display: block;
 }
 
-/* Project info text */
-.project-info p {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-    max-width: 100%;
+/* content area */
+.project-info{
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
 }
 
-/* Project titles */
-.project-title {
-    font-size: 1.5rem;
-    margin-top: 0;
-    color: #333;
+.project-title{
+  margin: 0;
+  font-size: 1.15rem;
+  color: #222;
+}
+
+/* tech list */
+.tech-list{
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.4rem;
+}
+
+.tech-list li{
+  font-size: .78rem;
+  background: #f1f5f9;
+  padding: 0.28rem 0.5rem;
+  border-radius: 999px;
+  color: #223;
+}
+
+/* description: limited height + nice scrollbar */
+.project-description{
+  font-size: .95rem;
+  margin: 0;
+  max-height: 88px;
+  overflow-y: auto;
+  padding-right: 6px;
+  -webkit-overflow-scrolling: touch;
+  line-height: 1.5;
+}
+
+/* subtle scrollbar */
+.project-description::-webkit-scrollbar{ height:6px; width:6px; }
+.project-description::-webkit-scrollbar-track { background: transparent; }
+.project-description::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.12);
+  border-radius: 999px;
+}
+.project-description { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.12) transparent; }
+
+/* when expanded via JS, remove limit */
+.project-description.expanded { 
+    max-height: none; 
+}
+
+/* footer */
+.card-footer{
+  margin-top: 0.6rem;
+  display:flex;
+  justify-content:flex-start;
+  gap: .6rem;
+  align-items:center;
+}
+
+.link-button {
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* make buttons fill space on small screens */
+.card-footer .bouncy-button { 
+    min-width: 160px; 
 }
 
 /* Replace your existing bouncy button and animation styles with these updated versions */
@@ -170,7 +388,6 @@ h1 {
 .bouncy-button:hover {
     animation: none !important;
     filter: brightness(110%);
-    /* Ensure button stabilizes on hover */
     transform: translateY(0);
 }
 
@@ -194,7 +411,6 @@ h1 {
     width: 100%;
     height: 100%;
     border-radius: 8px;
-    /* Fix gradients to scale properly with button */
     background-size: 100% 100%;
 }
 
@@ -232,7 +448,8 @@ h1 {
     transition: transform 34ms;
 }
 
-/* Define color schemes for primary, secondary and tertiary buttons */
+/* Define color schemes buttons */
+/* primary */
 .bouncy-button.primary .edge {
     background: linear-gradient(
         to left,
@@ -248,6 +465,7 @@ h1 {
     background: #3498db;
 }
 
+/* secondary */
 .bouncy-button.secondary .edge {
     background: linear-gradient(
         to left,
@@ -263,6 +481,7 @@ h1 {
     background: #2ecc71;
 }
 
+/* tertiary */
 .bouncy-button.tertiary .edge {
     background: linear-gradient(
         to left,
@@ -278,6 +497,38 @@ h1 {
     background: #9b59b6;
 }
 
+/* quarternary */
+.bouncy-button.quarternary .edge {
+    background: linear-gradient(
+        to left,
+        hsl(1deg 100% 30%) 0%,
+        hsl(1deg 100% 30%) 8%,
+        hsl(1deg 100% 30%) 92%,
+        hsl(1deg 100% 30%) 100%
+    );
+    background-size: 100% 100%;
+}
+
+.bouncy-button.quarternary .front {
+    background: #e24f42;
+}
+
+/* quinary */
+.bouncy-button.quinary .edge {
+    background: linear-gradient(
+        to left,
+        hsl(45deg, 100%, 25%) 0%,
+        hsl(45deg 100% 25%) 8%,
+        hsl(45deg 100% 25%) 92%,
+        hsl(45deg 100% 25%) 100%
+    );
+    background-size: 100% 100%;
+}
+
+.bouncy-button.quinary .front {
+    background: #ffbf00;
+}
+
 .button-container {
     display: flex;
     justify-content: center;
@@ -289,6 +540,14 @@ h1 {
 @media (max-width: 768px) {
     .projects {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .project-image { 
+        object-position: center; 
+    }
+
+    .card-footer .bouncy-button { 
+        width: 100%; 
     }
     
     h1 {
@@ -302,7 +561,6 @@ h1 {
 
 @media (max-width: 480px) {
     .bouncy-button {
-        padding: 10px 20px;
         font-size: 14px;
     }
     

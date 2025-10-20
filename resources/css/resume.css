@@ -147,6 +147,10 @@ header .subtitle {
     background: #f39c12;
 }
 
+.bouncy-button.primary .front {
+    background: #3498db;
+}
+
 /* Content area */
 .content {
     padding: 2rem;

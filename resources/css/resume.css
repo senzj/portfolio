@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fefbfb; /* Light background like portfolio */
+    color: #333;
+    font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* Monospace for headings */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Paragraphs */
+p {
+    font-family: 'Open Sans', sans-serif; /* Serif-like for readability */
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow, not heavy */
+    border-radius: 4px; /* Minimal rounding */
+}
+
+/* Header with gradient background */
+header {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    padding: 2rem 1rem;
+    background: white; /* Plain, no gradient */
+    border-bottom: 1px solid #eee; /* Simple separator */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #222;
+}
+
+header .subtitle {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+/* Merged contact info: Simple inline text */
+.contact-info {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+/* Button container */
+.header-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Simplified bouncy buttons (kept basic for functionality) */
+.bouncy-button {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    margin: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.bouncy-button:hover {
+    filter: brightness(110%);
+}
+
+.bouncy-button .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: hsl(0deg 0% 0% / 0.15); /* Lighter shadow */
+    will-change: transform;
+    transform: translateY(1px);
+    transition: transform 300ms ease;
+}
+
+.bouncy-button .edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.bouncy-button .front {
+    display: block;
+    position: relative;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: white;
+    background: #3498db; /* Simple color */
+    will-change: transform;
+    transform: translateY(-2px);
+    transition: transform 200ms ease;
+}
+
+.bouncy-button:hover .front {
+    transform: translateY(-3px);
+}
+
+.bouncy-button:active .front {
+    transform: translateY(-1px);
+}
+
+.bouncy-button:hover .shadow {
+    transform: translateY(2px);
+}
+
+.bouncy-button:active .shadow {
+    transform: translateY(0px);
+}
+
+/* Button variants: Simplified */
+.bouncy-button.white .front {
+    background: white;
+    color: #3498db;
+    border: 1px solid #ddd;
+}
+
+.bouncy-button.download .front {
+    background: #f39c12;
+}
+
+/* Content area */
+.content {
+    padding: 2rem;
+}
+
+/* Section styling */
+section {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee; /* Light separator */
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+section h2 i {
+    color: #3498db;
+    font-size: 1.2rem;
+}
+
+/* Experience items */
+.experience-item, .education-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f9f9f9; /* Light gray */
+    border-radius: 4px;
+    border-left: 3px solid #3498db; /* Simple accent */
+}
+
+.experience-item:last-child, .education-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.item-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.item-company {
+    font-size: 1rem;
+    color: #3498db;
+    font-weight: 600;
+}
+
+.item-date {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.item-description {
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Skills grid */
+#skills .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.skill-category {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+    border-top: 2px solid #3498db;
+}
+
+.skill-category h3 {
+    font-size: 1rem;
+    color: #222;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-category li {
+    padding: 0.4rem 0;
+    color: #555;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.skill-category li::before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    header .subtitle {
+        font-size: 0.5rem;
+    }
+    
+    .contact-info {
+        font-size: 0.9rem;
+    }
+    
+    .content {
+        padding: 1rem;
+    }
+    
+    section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .item-header {
+        flex-direction: column;
+    }
+    
+    #skills .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .bouncy-button {
+        width: 100%;
+    }
+}

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Jansen Lee | Portfolio</title>
+    <link rel="stylesheet" href="resources/css/style.css">
 
     <!-- Add Google Fonts for better typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,17 +13,48 @@
 
     <!-- Font Awesome for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        /* Stagger delays for sections */
+        header { animation-delay: 0.2s; }
+        #certificates { animation-delay: 0.4s; }
+        #projects { animation-delay: 0.6s; }
+        #contact { animation-delay: 0.8s; }
+    </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Hello there👋 I'm Jansen</h1>
+        
+        <header class="fade-in full-height-section">
+            <div class="header-content">
+                <div class="text-content">
+                    <h1 id="typewriter" class="intro-text"></h1>
+                    <p id="about me" class="about-text">
+                        Hello! I'm Jesus Jansen Lee, a passionate IT student specializing in Web and Mobile application development. 
+                        I love exploring the digital world and creating innovative solutions. 
+                        Welcome to my portfolio where I showcase my skills, projects, and certifications.
+                    </p>
+                </div>
+                <img src="assets/profile/snoopy.jpg" alt="Jansen Lee Profile Picture" class="profile-picture">
+            </div>
+
             <div class="button-container">
-                <button class="bouncy-button primary" onclick="scrollToSection('about')">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <span class="front"><i class="fas fa-user"></i> About Me</span>
-                </button>
+                <a href="resume.html">
+                    <button class="bouncy-button quinary">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front"><i class="fas fa-id-card"></i> Resume</span>
+                    </button>
+                </a>
 
                 <button class="bouncy-button secondary" onclick="scrollToSection('certificates')">
                     <span class="shadow"></span>
@@ -46,23 +77,8 @@
             </div>
         </header>
 
-        <section id="about" class="about">
-            <h2 class="section-title">About Me</h2>
-            <p>
-              Hi👋 my name Jesus Jansen Lee , a web developer passionate about creating functional, beautiful websites 🌐. Currently pursuing a BSIT degree 🎓 with specialization on Web and Mobile Apps📱 at FEU Institute of Technology. 
-              I am skilled at HTML, CSS, JavaScript, and modern frameworks such as Laravel and ReactJS. I am also a quick learner 🚀, always eager to tackle new challenges and collaborate with others 🤝.
-            </p>
-            <div class="button-container">
-                <button class="bouncy-button quinary" onclick="window.open('files/Resume.pdf', '_blank')">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <span class="front"><i class="fas fa-id-card"></i> View Resume</span>
-                </button>
-            </div>
-        </section>
-
-        <section id="certificates">
-            <h2 class="section-title">My Certifications</h2>
+        <section id="certificates" class="fade-in full-height-section">
+            <h2 class="section-title">Certifications</h2>
             <div class="cert-toggle">
                 <button id="toggleViewBtn"><i class="fas fa-bars"></i> Carousel view</i></button>
             </div>
@@ -189,33 +205,20 @@
                         </button>
                     </div>
 
-                    <!-- Certificate  -->
-                    <!-- <div class="certificate-card">
-                        <h3 class="cert-title"></h3>
-                        <p class="cert-meta"><strong>Issued by: </strong></p>
-                        <p class="cert-meta"><strong>Issued Date: </strong></p>
-                        <a href="" target="_blank" rel="noopener noreferrer" class="bouncy-button primary link-button">
-                            <span class="shadow"></span>
-                            <span class="edge"></span>
-                            <span class="front">
-                                <i class="fas fa-external-link-alt"></i> Verify
-                            </span>
-                        </a>
-                    </div> -->
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="projects-section">
-            <h2 class="section-title">My Projects</h2>
+        <section id="projects" class="fade-in projects-section full-height-section">
+            <h2 class="section-title">Projects</h2>
 
             <div class="projects">
                 <!-- Project 1 -->
                 <article class="project-card">
-                    <img src="prjctimg/unicon.png" alt="UniCon screenshot" class="project-image">
+                    <img src="assets/img/capstone_compass.png" alt="UniCon screenshot" class="project-image">
 
                     <div class="project-info">
-                        <h3 class="project-title">UniCon</h3>
+                        <h3 class="project-title">Capstone Compass</h3>
 
                         <p class="project-description" data-short>
                             This is our final project for Project Management — we created a thesis progress tracker that lets students and their advisers monitor progress and includes a live chat feature to make communication and updates easier.
@@ -242,7 +245,7 @@
 
                 <!-- Project 2 -->
                 <article class="project-card">
-                    <img src="prjctimg/trailventure.png" alt="Trailventure screenshot" class="project-image">
+                    <img src="assets/img/trailventure.png" alt="Trailventure screenshot" class="project-image">
 
                     <div class="project-info">
                         <h3 class="project-title">Trailventure</h3>
@@ -272,7 +275,7 @@
 
                 <!-- Project 3 -->
                 <article class="project-card">
-                    <img src="prjctimg/expense_tracker.png" alt="Expense Tracker screenshot" class="project-image">
+                    <img src="assets/img/expense_tracker.png" alt="Expense Tracker screenshot" class="project-image">
 
                     <div class="project-info">
                         <h3 class="project-title">Expense Tracker</h3>
@@ -300,7 +303,7 @@
 
                 <!-- Project 4 -->
                 <article class="project-card">
-                    <img src="prjctimg/MVS.png" alt="Grocery Store Management System screenshot" class="project-image">
+                    <img src="assets/img/MVS.png" alt="Grocery Store Management System screenshot" class="project-image">
 
                     <div class="project-info">
                         <h3 class="project-title">Grocery Store POS System</h3>
@@ -331,7 +334,7 @@
             </div>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="fade-in full-height-section">
             <h2 class="section-title">Contact Me</h2>
             <div class="button-container">
               
@@ -374,105 +377,13 @@
             </div>
         </section>
 
-        <!-- <section>
-            <center>
-                <button class="bouncy-button spam-button">
-                    <span class="shadow"></span>
-                    <span class="edge spam-button"></span>
-                    <span class="front spam-button"><i class="fa-solid fa-star"></i> Button that changes color <i class="fa-solid fa-star"></i></span>
-                </button>
-            </center>
-
-            <center>
-                <button class="bouncy-button primary">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <span class="front"><i class="fa-solid fa-star"></i> Button that does nothing <i class="fa-solid fa-star"></i></span>
-                </button>
-            </center>
-        </section> -->
-        
+        <footer>
+            <small>&copy; <span id="footeryear"></span> Jesus Jansen Lee</small>
+        </footer>
     </div>
 
     <!-- script -->
-    <script>
-        // scrolling for section navigation
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                window.scrollTo({
-                    top: section.offsetTop - 20,
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector(".certificates-wrapper");
-            const toggleBtn = document.getElementById("toggleViewBtn");
-
-            const scrollContent = document.querySelector(".scroll-content");
-            
-            // Clone cards for infinite effect
-            const clones = scrollContent.innerHTML;
-            scrollContent.innerHTML += clones;
-
-            // Mark cloned children
-            const cards = scrollContent.children;
-            for (let i = cards.length / 2; i < cards.length; i++) {
-                cards[i].classList.add("clone");
-            }
-
-            // Toggle grid / carousel view
-            toggleBtn.addEventListener("click", () => {
-                container.classList.toggle("grid");
-
-                if (container.classList.contains("grid")) {
-                toggleBtn.innerHTML = "<i class='fas fa-border-all'></i> Grid View";
-                } else {
-                toggleBtn.innerHTML = "<i class='fas fa-bars'></i> Carousel View";
-                }
-            });
-        });
-
-
-        // randomly assign floating animations on different buttons
-        const buttons = document.querySelectorAll('.button-container .bouncy-button');
-        const animations = ['float1', 'float2', 'float3', 'float4', 'float5', 'float6'];
-
-        buttons.forEach(button => {
-            // random animation
-            const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
-            // Assign the animation as an inline style
-            button.style.animation = `${randomAnimation} 3.5s ease-in-out infinite`;
-        });
-
-        // spam button that changes color
-        const spamButton = document.querySelector('.spam-button');
-        const spamEdge = document.querySelector('.edge.spam-button');
-        const spamFront = document.querySelector('.front.spam-button');
-
-        let colors = ['#3498db', '#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#A133FF', '#FF33D4']; // Lighter variants for front
-        let edgeColors = ['#00437A', '#DD4522', '#22DD46', '#2246DD', '#DD2290', '#9022DD', '#DD22C3']; // Darker variants for edges
-
-        let currentColorIndex = 0;
-        spamButton.addEventListener('click', () => {
-            currentColorIndex = (currentColorIndex + 1) % colors.length;
-            spamFront.style.backgroundColor = colors[currentColorIndex];
-            spamEdge.style.backgroundColor = edgeColors[currentColorIndex];
-            spamFront.style.color = '#fff';
-            console.log(`Spam button color changed to ${colors[currentColorIndex]}`);
-        });
-
-        // Initialize the spam button colors on page load
-        window.addEventListener('DOMContentLoaded', () => {
-            // Set initial colors for the spam button
-            spamFront.style.backgroundColor = colors[0]; // Using the first color in your array
-            spamEdge.style.backgroundColor = edgeColors[0]; // Using the first edge color
-            spamFront.style.color = '#fff';
-        });
-
-    </script>
+    <script src="resources/js/index.js"></script>
 
 </body>
 </html>

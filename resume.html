@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jansen Lee | Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="resources/css/resume.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-actions">
+                <button class="bouncy-button white" onclick="window.location.href='index.html'">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front"><i class="fas fa-arrow-left"></i> Back to Portfolio</span>
+                </button>
+                <button class="bouncy-button download" onclick="downloadResume()">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front"><i class="fas fa-download"></i> Download Resume</span>
+                </button>
+            </div>
+
+            <h1>Jesus Jansen Lee</h1>
+            <p class="subtitle">Web & Mobile Developer | Cybersecurity Enthusiast</p>
+            <div class="contact-info">
+                <span>Binondo Manila, Metro Manila Philippines</span> •
+                <span>+63 927 654 3210</span> •
+                <span>janseeeenleeee@gmail.com</span>
+            </div>
+        </header>
+
+        <div class="content">
+            <section id="experience">
+                <h2><i class="fas fa-briefcase"></i> Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Full-Stack Developer</div>
+                            <div class="item-company">Academic Projects</div>
+                        </div>
+                        <div class="item-date">2023 - Present</div>
+                    </div>
+                    <p class="item-description">
+                        Developed multiple web applications including e-commerce platforms, project management systems, and POS solutions. 
+                        Utilized Laravel, React, and modern web technologies to create responsive and user-friendly interfaces.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Network & Cybersecurity Intern</div>
+                            <div class="item-company">Cisco Networking Academy</div>
+                        </div>
+                        <div class="item-date">2023</div>
+                    </div>
+                    <p class="item-description">
+                        Completed comprehensive CCNA certification courses covering enterprise networking, security, and automation. 
+                        Gained practical experience in network configuration, troubleshooting, and security implementations.
+                    </p>
+                </div>
+            </section>
+
+            <section id="skills">
+                <h2><i class="fas fa-code"></i> Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend Development</h3>
+                        <ul>
+                            <li>HTML5 & CSS3</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>React.js</li>
+                            <li>TailwindCSS</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend Development</h3>
+                        <ul>
+                            <li>PHP & Laravel</li>
+                            <li>Python</li>
+                            <li>Node.js</li>
+                            <li>Livewire</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Database & Tools</h3>
+                        <ul>
+                            <li>MySQL</li>
+                            <li>Firebase</li>
+                            <li>SQLite</li>
+                            <li>Git & GitHub</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Others</h3>
+                        <ul>
+                            <li>Network Security</li>
+                            <li>Linux Systems</li>
+                            <li>Project Management</li>
+                            <li>Mandarin (HSK 4)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education">
+                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Bachelor of Science in Information Technology</div>
+                            <div class="item-company">FEU Institute of Technology</div>
+                        </div>
+                        <div class="item-date">Expected 2026</div>
+                    </div>
+                    <p class="item-description">
+                        Specialization: Web and Mobile Application Development
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <footer>
+        <small>&copy; <span id="footeryear"></span> Jesus Jansen Lee</small>
+    </footer>
+
+    <script src="resources/js/resume.js"></script>
+</body>
+</html>

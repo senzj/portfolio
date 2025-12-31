@@ -107,3 +107,27 @@ window.addEventListener('DOMContentLoaded', () => {
     spamEdge.style.backgroundColor = edgeColors[0]; // Using the first edge color
     spamFront.style.color = '#fff';
 });
+
+// ==========================================
+// Journey Timeline Functionality
+// ==========================================
+
+// Scroll reveal animation for timeline items
+const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Observe all timeline year groups
+const timelineYearGroups = document.querySelectorAll('.timeline-year-group');
+timelineYearGroups.forEach(group => {
+    timelineObserver.observe(group);
+});

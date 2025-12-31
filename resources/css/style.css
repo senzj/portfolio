@@ -590,6 +590,261 @@ h1 {
     margin-bottom: 0; /* Remove bottom margin since it's now inline */
 }
 
+/* Journey header: Flexbox to display h2 and image side-by-side */
+.journey-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between h2 and image */
+    margin-bottom: 2rem; /* Space below the header */
+}
+
+/* Adjust journey picture for inline display */
+.journey-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Prevents shrinking */
+    margin-bottom: 0; /* Remove bottom margin since it's now inline */
+}
+
+/* Journey Timeline Container */
+.journey-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Vertical line */
+.journey-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #4a90e2, #357ABD);
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+/* Year Group */
+.timeline-year-group {
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-out;
+}
+
+.timeline-year-group.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Year Marker */
+.year-marker {
+    position: relative;
+    text-align: center;
+    margin-bottom: 2rem;
+    z-index: 2;
+}
+
+.timeline-year {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    position: relative;
+    z-index: 2;
+}
+
+/* Timeline Events Container */
+.timeline-events {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Timeline Item */
+.timeline-item {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.5s ease-out;
+    padding-right: calc(50% + 20px);
+}
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: calc(50% + 20px);
+    transform: translateX(30px);
+}
+
+.timeline-year-group.visible .timeline-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Stagger animation for items */
+.timeline-year-group.visible .timeline-item:nth-child(1) { transition-delay: 0.1s; }
+.timeline-year-group.visible .timeline-item:nth-child(2) { transition-delay: 0.2s; }
+.timeline-year-group.visible .timeline-item:nth-child(3) { transition-delay: 0.3s; }
+.timeline-year-group.visible .timeline-item:nth-child(4) { transition-delay: 0.4s; }
+.timeline-year-group.visible .timeline-item:nth-child(5) { transition-delay: 0.5s; }
+
+/* Timeline Content */
+.timeline-content {
+    flex: 1;
+    background: white;
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    max-width: 400px;
+}
+
+/* Color variants for timeline items */
+.timeline-item.primary .timeline-content {
+    border-left: 4px solid #FF6B6B;
+}
+
+.timeline-item.secondary .timeline-content {
+    border-left: 4px solid #4ECDC4;
+}
+
+.timeline-item.tertiary .timeline-content {
+    border-left: 4px solid #FFE66D;
+}
+
+.timeline-item.quarternary .timeline-content {
+    border-left: 4px solid #95E1D3;
+}
+
+.timeline-item.quinary .timeline-content {
+    border-left: 4px solid #AA96DA;
+}
+
+.timeline-item:nth-child(even).primary .timeline-content {
+    border-left: none;
+    border-right: 4px solid #FF6B6B;
+}
+
+.timeline-item:nth-child(even).secondary .timeline-content {
+    border-left: none;
+    border-right: 4px solid #4ECDC4;
+}
+
+.timeline-item:nth-child(even).tertiary .timeline-content {
+    border-left: none;
+    border-right: 4px solid #FFE66D;
+}
+
+.timeline-item:nth-child(even).quarternary .timeline-content {
+    border-left: none;
+    border-right: 4px solid #95E1D3;
+}
+
+.timeline-item:nth-child(even).quinary .timeline-content {
+    border-left: none;
+    border-right: 4px solid #AA96DA;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.event-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+    font-family: ui-monospace, Monaco, monospace;
+}
+
+.event-date {
+    display: inline-block;
+    background: #f0f4f8;
+    color: #4a90e2;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .journey-timeline::before {
+        left: 30px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        justify-content: flex-start;
+        padding-left: 60px;
+        padding-right: 0;
+    }
+
+    .timeline-content {
+        max-width: 100%;
+    }
+
+    .timeline-item .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        border-left: 4px solid #4a90e2;
+        border-right: none;
+    }
+
+    .timeline-item.primary .timeline-content,
+    .timeline-item:nth-child(even).primary .timeline-content {
+        border-left: 4px solid #FF6B6B;
+        border-right: none;
+    }
+
+    .timeline-item.secondary .timeline-content,
+    .timeline-item:nth-child(even).secondary .timeline-content {
+        border-left: 4px solid #4ECDC4;
+        border-right: none;
+    }
+
+    .timeline-item.tertiary .timeline-content,
+    .timeline-item:nth-child(even).tertiary .timeline-content {
+        border-left: 4px solid #FFE66D;
+        border-right: none;
+    }
+
+    .timeline-item.quarternary .timeline-content,
+    .timeline-item:nth-child(even).quarternary .timeline-content {
+        border-left: 4px solid #95E1D3;
+        border-right: none;
+    }
+
+    .timeline-item.quinary .timeline-content,
+    .timeline-item:nth-child(even).quinary .timeline-content {
+        border-left: 4px solid #AA96DA;
+        border-right: none;
+    }
+
+    .timeline-year {
+        font-size: 1.4rem;
+        padding: 0.6rem 1.5rem;
+    }
+
+    .event-title {
+        font-size: 1.05rem;
+    }
+}
+
 /* Projects header: Flexbox to display h2 and image side-by-side */
 .proj-header {
     display: flex;

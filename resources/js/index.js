@@ -43,32 +43,169 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const container = document.querySelector(".certificates-wrapper");
     const toggleBtn = document.getElementById("toggleViewBtn");
-
     const scrollContent = document.querySelector(".scroll-content");
-    
-    // Clone cards for infinite effect
-    const clones = scrollContent.innerHTML;
-    scrollContent.innerHTML += clones;
 
-    // Mark cloned children
-    const cards = scrollContent.children;
-    for (let i = cards.length / 2; i < cards.length; i++) {
-        cards[i].classList.add("clone");
+    if (scrollContent) {
+        // Clone cards for infinite effect
+        const clones = scrollContent.innerHTML;
+        scrollContent.innerHTML += clones;
+
+        // Mark cloned children
+        const cards = scrollContent.children;
+        for (let i = cards.length / 2; i < cards.length; i++) {
+            cards[i].classList.add("clone");
+        }
     }
 
     // typewriter header intro
     typeEffect("typewriter", "Hey there👋 I'm Jansen", 50);
 
     // Toggle grid / carousel view
-    toggleBtn.addEventListener("click", () => {
-        container.classList.toggle("grid");
+    if (toggleBtn && container) {
+        toggleBtn.addEventListener("click", () => {
+            container.classList.toggle("grid");
 
-        if (container.classList.contains("grid")) {
-        toggleBtn.innerHTML = "<i class='fas fa-border-all'></i> Grid View";
-        } else {
-        toggleBtn.innerHTML = "<i class='fas fa-bars'></i> Carousel View";
+            if (container.classList.contains("grid")) {
+                toggleBtn.innerHTML = "<i class='fas fa-border-all'></i> Grid View";
+            } else {
+                toggleBtn.innerHTML = "<i class='fas fa-bars'></i> Carousel View";
+            }
+        });
+    }
+
+    const projectCards = document.querySelectorAll(".project-preview-card");
+    const projectModal = document.getElementById("projectModal");
+
+    if (projectCards.length && projectModal) {
+        const modalTitle = document.getElementById("modalProjectTitle");
+        const modalDescription = document.getElementById("modalProjectDescription");
+        const modalTech = document.getElementById("modalProjectTech");
+        const modalLinks = document.getElementById("modalProjectLinks");
+        const modalImage = document.getElementById("modalProjectImage");
+        const carouselCounter = document.getElementById("carouselCounter");
+        const carouselPrev = document.getElementById("carouselPrev");
+        const carouselNext = document.getElementById("carouselNext");
+        const closeButtons = projectModal.querySelectorAll("[data-close-modal]");
+
+        let galleryImages = [];
+        let activeIndex = 0;
+
+        const updateCarousel = () => {
+            if (!galleryImages.length) return;
+            modalImage.src = galleryImages[activeIndex];
+            carouselCounter.textContent = `${activeIndex + 1} / ${galleryImages.length}`;
+        };
+
+        const openModal = (card) => {
+            const {
+                title = "",
+                description = "",
+                tech = "",
+                repo = "",
+                demo = "",
+                gallery = ""
+            } = card.dataset;
+
+            const fallbackImage = card.querySelector(".project-image")?.src || "";
+
+            galleryImages = gallery
+                .split(",")
+                .map((item) => item.trim())
+                .filter(Boolean);
+
+            if (!galleryImages.length && fallbackImage) {
+                galleryImages = [fallbackImage];
+            }
+
+            activeIndex = 0;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalTech.innerHTML = "";
+
+            tech
+                .split("|")
+                .map((item) => item.trim())
+                .filter(Boolean)
+                .forEach((item) => {
+                    const li = document.createElement("li");
+                    li.textContent = item;
+                    modalTech.appendChild(li);
+                });
+
+            modalLinks.innerHTML = "";
+
+            if (repo) {
+                modalLinks.insertAdjacentHTML(
+                    "beforeend",
+                    `<a class="bouncy-button primary link-button" href="${repo}" target="_blank" rel="noopener noreferrer" aria-label="Open project repository"><span class="shadow" aria-hidden="true"></span><span class="edge" aria-hidden="true"></span><span class="front"><i class="fab fa-github" aria-hidden="true"></i> Repository</span></a>`
+                );
+            }
+
+            if (demo) {
+                modalLinks.insertAdjacentHTML(
+                    "beforeend",
+                    `<a class="bouncy-button primary link-button" href="${demo}" target="_blank" rel="noopener noreferrer" aria-label="Open project live demo"><span class="shadow" aria-hidden="true"></span><span class="edge" aria-hidden="true"></span><span class="front"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Live Demo</span></a>`
+                );
+            }
+
+            if (!repo && !demo) {
+                modalLinks.innerHTML = "<span class='project-modal-empty-link'>Links not available.</span>";
+            }
+
+            updateCarousel();
+            projectModal.classList.add("show");
+            projectModal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("modal-open");
+        };
+
+        const closeModal = () => {
+            projectModal.classList.remove("show");
+            projectModal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("modal-open");
+        };
+
+        projectCards.forEach((card) => {
+            const trigger = card.querySelector(".project-open");
+            if (!trigger) return;
+            trigger.addEventListener("click", () => openModal(card));
+        });
+
+        if (carouselPrev) {
+            carouselPrev.addEventListener("click", () => {
+                if (!galleryImages.length) return;
+                activeIndex = (activeIndex - 1 + galleryImages.length) % galleryImages.length;
+                updateCarousel();
+            });
         }
-    });
+
+        if (carouselNext) {
+            carouselNext.addEventListener("click", () => {
+                if (!galleryImages.length) return;
+                activeIndex = (activeIndex + 1) % galleryImages.length;
+                updateCarousel();
+            });
+        }
+
+        closeButtons.forEach((button) => {
+            button.addEventListener("click", closeModal);
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (!projectModal.classList.contains("show")) return;
+
+            if (event.key === "Escape") {
+                closeModal();
+            }
+
+            if (event.key === "ArrowLeft" && carouselPrev) {
+                carouselPrev.click();
+            }
+
+            if (event.key === "ArrowRight" && carouselNext) {
+                carouselNext.click();
+            }
+        });
+    }
 });
 
 
@@ -92,20 +229,24 @@ let colors = ['#3498db', '#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#A133FF', 
 let edgeColors = ['#00437A', '#DD4522', '#22DD46', '#2246DD', '#DD2290', '#9022DD', '#DD22C3']; // Darker variants for edges
 
 let currentColorIndex = 0;
-spamButton.addEventListener('click', () => {
-    currentColorIndex = (currentColorIndex + 1) % colors.length;
-    spamFront.style.backgroundColor = colors[currentColorIndex];
-    spamEdge.style.backgroundColor = edgeColors[currentColorIndex];
-    spamFront.style.color = '#fff';
-    console.log(`Spam button color changed to ${colors[currentColorIndex]}`);
-});
+if (spamButton && spamFront && spamEdge) {
+    spamButton.addEventListener('click', () => {
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+        spamFront.style.backgroundColor = colors[currentColorIndex];
+        spamEdge.style.backgroundColor = edgeColors[currentColorIndex];
+        spamFront.style.color = '#fff';
+        console.log(`Spam button color changed to ${colors[currentColorIndex]}`);
+    });
+}
 
 // Initialize the spam button colors on page load
 window.addEventListener('DOMContentLoaded', () => {
-    // Set initial colors for the spam button
-    spamFront.style.backgroundColor = colors[0]; // Using the first color in your array
-    spamEdge.style.backgroundColor = edgeColors[0]; // Using the first edge color
-    spamFront.style.color = '#fff';
+    if (spamFront && spamEdge) {
+        // Set initial colors for the spam button
+        spamFront.style.backgroundColor = colors[0]; // Using the first color in your array
+        spamEdge.style.backgroundColor = edgeColors[0]; // Using the first edge color
+        spamFront.style.color = '#fff';
+    }
 });
 
 // ==========================================

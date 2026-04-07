@@ -272,6 +272,13 @@ h1 {
   box-shadow: 0 14px 32px rgba(12,18,35,0.12);
 }
 
+.project-open {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
 .project-image{
   width: 100%;
   height: 20rem;
@@ -279,17 +286,9 @@ h1 {
   display: block;
 }
 
-/* content area */
-.project-info{
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  flex: 1;
-}
-
 .project-title{
-  margin: 0;
+    margin: 0;
+    padding: 1rem 1.25rem 1.15rem;
   font-size: 1.15rem;
   color: #222;
 }
@@ -312,29 +311,10 @@ h1 {
   color: #223;
 }
 
-/* description: limited height + nice scrollbar */
-.project-description{
-  font-size: .95rem;
-  margin: 0;
-  max-height: 88px;
-  overflow-y: auto;
-  padding-right: 6px;
-  -webkit-overflow-scrolling: touch;
-  line-height: 1.5;
-}
-
-/* subtle scrollbar */
-.project-description::-webkit-scrollbar{ height:6px; width:6px; }
-.project-description::-webkit-scrollbar-track { background: transparent; }
-.project-description::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.12);
-  border-radius: 999px;
-}
-.project-description { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.12) transparent; }
-
-/* when expanded via JS, remove limit */
-.project-description.expanded { 
-    max-height: none; 
+.project-modal-description{
+    font-size: .95rem;
+    margin: 0;
+    line-height: 1.65;
 }
 
 /* footer */
@@ -354,6 +334,118 @@ h1 {
 /* make buttons fill space on small screens */
 .card-footer .bouncy-button { 
     min-width: 160px; 
+}
+
+.project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: none;
+    padding: 1rem;
+}
+
+.project-modal.show {
+    display: grid;
+    place-items: center;
+}
+
+.project-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+.project-modal-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(920px, calc(100% - 2rem));
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+}
+
+.project-modal-close {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    z-index: 4;
+    width: 2.35rem;
+    height: 2.35rem;
+    border: none;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #222;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.project-modal-carousel {
+    position: relative;
+    background: #f5f8fa;
+}
+
+.modal-project-image {
+    width: 100%;
+    height: min(58vh, 480px);
+    object-fit: contain;
+    display: block;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.35rem;
+    height: 2.35rem;
+    border: none;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #fff;
+    cursor: pointer;
+}
+
+.carousel-nav.prev {
+    left: 0.75rem;
+}
+
+.carousel-nav.next {
+    right: 0.75rem;
+}
+
+.carousel-counter {
+    position: absolute;
+    bottom: 0.85rem;
+    right: 0.85rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    color: #fff;
+    background: rgba(15, 23, 42, 0.65);
+}
+
+.project-modal-content {
+    padding: 1.35rem;
+}
+
+.project-modal-content .project-title {
+    padding: 0;
+    margin-bottom: 0.7rem;
+}
+
+.project-modal-content .tech-list {
+    margin-top: 0.8rem;
+}
+
+.project-modal-empty-link {
+    font-weight: 600;
+    color: #6b7280;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 /* Replace your existing bouncy button and animation styles with these updated versions */
@@ -414,8 +506,8 @@ h1 {
     animation: float2 4s ease-in-out infinite;
 }
 
-/* Prevent project card buttons from floating */
-.project-info .bouncy-button {
+/* Prevent modal buttons from floating */
+.project-modal .bouncy-button {
     animation: none;
 }
 

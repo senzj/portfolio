@@ -973,6 +973,23 @@ body.modal-open {
     margin-bottom: 0; /* Remove bottom margin since it's now inline */
 }
 
+/* Support header: Flexbox to display h2 and image side-by-side */
+.support-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between h2 and image */
+    margin-bottom: 2rem; /* Space below the header */
+}
+.support-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Prevents shrinking */
+    margin-bottom: 0; /* Remove bottom margin since it's now inline */
+}
+
 
 
 footer {

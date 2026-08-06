@@ -1,3 +1,4 @@
+// resume.js
 // DOM
 document.addEventListener("DOMContentLoaded", () => {
 

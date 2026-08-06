@@ -3,459 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jansen Lee | Portfolio</title>
+    <title>Jansen Lee — Full-stack Laravel Developer</title>
+    <meta name="description" content="Jansen Lee — full-stack Laravel developer building POS, imaging, and lab systems. Also working in Flutter.">
+
+    <script>
+      // Apply saved/system theme before first paint to avoid a flash of the wrong theme.
+      (function () {
+        try {
+          var saved = localStorage.getItem('jl-theme');
+          if (saved && saved !== 'system') {
+            document.documentElement.setAttribute('data-theme', saved);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <link rel="stylesheet" href="resources/css/style.css">
 
-    <!-- Add Google Fonts for better typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <style>
-        /* Fade-in animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-            opacity: 0;
-        }
-        /* Stagger delays for sections */
-        header { animation-delay: 0.2s; }
-        #certificates { animation-delay: 0.4s; }
-        #projects { animation-delay: 0.6s; }
-        #contact { animation-delay: 0.8s; }
-    </style>
 </head>
 <body>
-    <div class="container">
-        
-        <header class="fade-in full-height-section">
-            <div class="floating-bg">
-                <img src="assets/img/snoopy/snoopy1.jpg" alt="" class="float-item float1">
-                <img src="assets/img/snoopy/snoopy2.jpg" alt="" class="float-item float2">
-                <img src="assets/img/snoopy/snoopy3.jpg" alt="" class="float-item float3">
-                <img src="assets/img/snoopy/snoopy4.jpg" alt="" class="float-item float4">
-                <img src="assets/img/snoopy/snoopy5.jpg" alt="" class="float-item float5">
-                <img src="assets/img/snoopy/snoopy6.jpg" alt="" class="float-item float6">
-                <img src="assets/img/snoopy/snoopy7.jpg" alt="" class="float-item float7">
-                <img src="assets/img/snoopy/snoopy8.jpg" alt="" class="float-item float8">
-            </div>
 
-            <div class="header-content">
-                <div class="text-content">
-                    <h1 id="typewriter" class="intro-text"></h1>
-                    <p id="about me" class="about-text">
-                        Hello! My name is Jesus Jansen Lee, but you may call me Jansen. I am a Full-stack Laravel developer, passionate about computer systems.
-                    </p>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <nav class="sitenav">
+        <a href="#top" class="brand">JCLEE<span class="brand-dot">.</span></a>
+
+        <div class="nav-links">
+            <a href="#certifications">Certs</a>
+            <a href="#work">Work</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+            <div class="theme-switch">
+                <button type="button" class="theme-trigger" id="themeTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Change theme">
+                    <i class="fas fa-swatchbook" aria-hidden="true"></i>
+                </button>
+                <div class="theme-menu" id="themeMenu" role="menu">
+                    <button type="button" class="theme-option" data-theme-choice="light" role="menuitemradio">
+                        <i class="fas fa-sun" aria-hidden="true"></i> Light
+                    </button>
+                    <button type="button" class="theme-option" data-theme-choice="dark" role="menuitemradio">
+                        <i class="fas fa-moon" aria-hidden="true"></i> Dark
+                    </button>
+                    <button type="button" class="theme-option" data-theme-choice="system" role="menuitemradio">
+                        <i class="fas fa-desktop" aria-hidden="true"></i> System
+                    </button>
+                    <button type="button" class="theme-option" data-theme-choice="retro" role="menuitemradio">
+                        <i class="fas fa-tv" aria-hidden="true"></i> Retro
+                    </button>
+                    <button type="button" class="theme-option" data-theme-choice="brutalist" role="menuitemradio">
+                        <i class="fas fa-shapes" aria-hidden="true"></i> Brutalist
+                    </button>
                 </div>
-                <img src="assets/img/snoopy/snoopy_header.jpg" alt="Jansen Lee Profile Picture" class="profile-picture">
             </div>
 
-            <div class="button-container">
+            <a class="nav-cv" href="assets/files/LEE_CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download CV">
+                <i class="fas fa-file-pdf" aria-hidden="true"></i> <span class="nav-cv-text">CV</span>
+            </a>
+        </div>
+    </nav>
 
-                <button class="bouncy-button primary" onclick="window.open('assets/files/LEE_CV.pdf', '_blank')">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <span class="front"><i class="fas fa-file-pdf"></i> Curriculum Vitae</span>
-                </button>
+    <main id="main">
 
-                <button class="bouncy-button secondary" onclick="scrollToSection('certificates')">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <span class="front"><i class="fas fa-certificate"></i> Certifications</span>
-                </button>
+        <header id="top" class="hero">
+            <div class="hero-grid">
+                <div class="hero-inner">
+                    <h1 id="typewriter" class="hero-name"></h1>
+                    <p class="hero-role">Full-stack Laravel Developer</p>
 
-                <!-- <button class="bouncy-button tertiary" onclick="scrollToSection('journey')">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <span class="front"><i class="fas fa-certificate"></i> Journey</span>
-                </button> -->
+                    <p class="hero-bio">
+                        I design and ship backend-heavy web systems — POS platforms, a medical
+                        imaging archive, a lab tracking tool — mostly in Laravel, increasingly in
+                        Flutter. I like the unglamorous middle layer: schemas, permissions, the
+                        parts that have to be right.
+                    </p>
 
-                <button class="bouncy-button quarternary" onclick="scrollToSection('projects')">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <span class="front"><i class="fas fa-code"></i> Projects</span>
-                </button>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="assets/files/LEE_CV.pdf" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-file-pdf" aria-hidden="true"></i> Download CV
+                        </a>
+                        <a class="btn btn-ghost" href="#work">
+                            View work <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
 
-                <button class="bouncy-button quinary" onclick="scrollToSection('contact')">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <span class="front"><i class="fas fa-envelope"></i> Contacts</span>
-                </button>
-
+                <div class="hero-console" id="heroConsole">
+                    <div class="console-bar">
+                        <span class="console-dot"></span>
+                        <span class="console-dot"></span>
+                        <span class="console-dot"></span>
+                        <span class="console-path">jansen@portfolio:~</span>
+                    </div>
+                    <div class="console-body" id="consoleBody" tabindex="0" aria-label="Interactive terminal. Type help and press enter.">
+                        <p><span class="console-prompt">jansen@portfolio:~$</span> whoami</p>
+                        <p class="console-out">jesus_jansen_lee — full-stack dev</p>
+                        <p><span class="console-prompt">jansen@portfolio:~$</span> cat stack.txt</p>
+                        <p class="console-out">Laravel · PHP · Livewire · Flutter</p>
+                        <p><span class="console-prompt">jansen@portfolio:~$</span> ./ship.sh --project pos-system</p>
+                        <p class="console-out console-success">✓ deployed</p>
+                        <p class="console-hint">type <b>help</b> and press enter · <b>tab</b>/swipe to autocomplete</p>
+                        <p class="console-input-line">
+                            <span class="console-prompt">jansen@portfolio:~$</span>
+                            <span class="console-typed" id="consoleTyped"></span><span class="console-caret" id="consoleCaret"></span><span class="console-ghost" id="consoleGhost"></span><span class="console-hint-key" id="consoleHintKey"></span>
+                        </p>
+                    </div>
+                </div>
             </div>
+
+            <dl class="status-panel" aria-label="Quick stats">
+                <div class="status-item" data-reveal>
+                    <dt>Certifications</dt>
+                    <dd>09</dd>
+                </div>
+                <div class="status-item" data-reveal>
+                    <dt>Projects shipped</dt>
+                    <dd>08</dd>
+                </div>
+                <div class="status-item" data-reveal>
+                    <dt>Internships</dt>
+                    <dd>02</dd>
+                </div>
+                <div class="status-item" data-reveal>
+                    <dt>Local time</dt>
+                    <dd class="status-clock" id="statusClock">--:--</dd>
+                </div>
+            </dl>
         </header>
 
-        <section id="certificates" class="fade-in full-height-section">
-            <div class="cert-header">
-                <img src="assets/img/snoopy/snoopy_certificate.jpg" alt="Certificates" class="certificates-picture">
-                <h2 class="section-title">Certifications</h2>
-            </div>
-            <div class="cert-toggle">
-                <button id="toggleViewBtn"><i class="fas fa-bars"></i> Carousel view</button>
-            </div>
-
-            <div class="certificates-wrapper">
-                <div class="scroll-content">
-                    <!-- Certificate 1 -->
-                    <div class="certificate-card">
-                        <h3 class="cert-title">PMI Project Management Ready™</h3>
-                        <p class="cert-meta"><strong>Issued by: </strong>Project Management Institute</p>
-                        <p class="cert-meta"><strong>Issued Date: </strong>March 27, 2025</p>
-                        <a href="https://www.credly.com/badges/8c97d98a-0c22-408c-886b-a98ca14de608/public_url" target="_blank" rel="noopener noreferrer" class="bouncy-button primary link-button">
-                            <span class="shadow"></span>
-                            <span class="edge"></span>
-                            <span class="front">
-                                <i class="fas fa-external-link-alt"></i> Verify
-                            </span>
-                        </a>
-                    </div>
-
-                    <!-- Certificate 2 -->
-                    <div class="certificate-card">
-                        <h3 class="cert-title">IT Specialist - Cybersecurity</h3>
-                        <p class="cert-meta"><strong>Issued by: </strong>Certiport</p>
-                        <p class="cert-meta"><strong>Issued Date: </strong>March 26, 2025</p>
-                        <a href="https://www.credly.com/badges/78734f13-eb2d-48f0-935a-4ec04f656fe6/public_url" target="_blank" rel="noopener noreferrer" class="bouncy-button secondary link-button">
-                            <span class="shadow"></span>
-                            <span class="edge"></span>
-                            <span class="front">
-                                <i class="fas fa-external-link-alt"></i> Verify
-                            </span>
-                        </a>
-                    </div>
-
-                    <!-- Certificate 3 -->
-                    <div class="certificate-card">
-                        <h3 class="cert-title">CCNA: Enterprise Networking, Security, and Automation</h3>
-                        <p class="cert-meta"><strong>Issued by: </strong>Cisco Networking Academy</p>
-                        <p class="cert-meta"><strong>Issued Date: </strong>December 05, 2023</p>
-                        <a href="https://www.credly.com/badges/916c8abb-e10d-4150-930b-2e5bf1f26448/public_url" target="_blank" rel="noopener noreferrer" class="bouncy-button tertiary link-button">
-                            <span class="shadow"></span>
-                            <span class="edge"></span>
-                            <span class="front">
-                                <i class="fas fa-external-link-alt"></i> Verify
-                            </span>
-                        </a>
-                    </div>
-
-                    <!-- Certificate 4 -->
-                    <div class="certificate-card">
-                        <h3 class="cert-title">CCNA: Switching, Routing, and Wireless Essentials</h3>
-                        <p class="cert-meta"><strong>Issued by: </strong>Cisco Networking Academy</p>
-                        <p class="cert-meta"><strong>Issued Date: </strong>September 13, 2023</p>
-                        <a href="https://www.credly.com/badges/1ac06572-09dd-43b7-ad16-1601178c3c58/public_url" target="_blank" rel="noopener noreferrer" class="bouncy-button quarternary link-button">
-                            <span class="shadow"></span>
-                            <span class="edge"></span>
-                            <span class="front">
-                                <i class="fas fa-external-link-alt"></i> Verify
-                            </span>
-                        </a>
-                    </div>
-
-                    <!-- Certificate 5 -->
-                    <div class="certificate-card">
-                        <h3 class="cert-title">IT Specialist - Networking</h3>
-                        <p class="cert-meta"><strong>Issued by: </strong>Certiport</p>
-                        <p class="cert-meta"><strong>Issued Date: </strong>July 13, 2023</p>
-                        <a href="https://www.credly.com/badges/0c4ce166-8e80-4850-a362-10b281d6f416/public_url" target="_blank" rel="noopener noreferrer" class="bouncy-button quinary link-button">
-                            <span class="shadow"></span>
-                            <span class="edge"></span>
-                            <span class="front">
-                                <i class="fas fa-external-link-alt"></i> Verify
-                            </span>
-                        </a>
-                    </div>
-
-                    <!-- Certificate 6 -->
-                    <div class="certificate-card">
-                        <h3 class="cert-title">CCNA: Introduction to Networks</h3>
-                        <p class="cert-meta"><strong>Issued by: </strong>Cisco Networking Academy</p>
-                        <p class="cert-meta"><strong>Issued Date: </strong>April 16, 2023</p>
-                        <a href="https://www.credly.com/badges/a76f9acb-a43b-4ba3-8099-70e938057c22/public_url" target="_blank" rel="noopener noreferrer" class="bouncy-button secondary link-button">
-                            <span class="shadow"></span>
-                            <span class="edge"></span>
-                            <span class="front">
-                                <i class="fas fa-external-link-alt"></i> Verify
-                            </span>
-                        </a>
-                    </div>
-
-                    <!-- Certificate 7 -->
-                    <div class="certificate-card">
-                        <h3 class="cert-title">HSK (Level 4)</h3>
-                        <p class="cert-meta"><strong>Issued by: </strong>Confucius Institute Headquarters</p>
-                        <p class="cert-meta"><strong>Issued Date: </strong>September 22, 2019</p>
-                        <button class="bouncy-button primary" onclick="window.open('assets/files/HSK4.pdf', '_blank')">
-                            <span class="shadow"></span>
-                            <span class="edge"></span>
-                            <span class="front"><i class="fas fa-file-pdf"></i> View</span>
-                        </button>
-                    </div>
-
-                    <!-- Certificate 8 -->
-                    <div class="certificate-card">
-                        <h3 class="cert-title">NDG Linux Essentials</h3>
-                        <p class="cert-meta"><strong>Issued by: </strong>Cisco Networking Academy</p>
-                        <p class="cert-meta"><strong>Issued Date: </strong>May 17, 2024</p>
-                        <button class="bouncy-button spam-button">
-                            <span class="shadow"></span>
-                            <span class="edge spam-button"></span>
-                            <span class="front spam-button">Not Available</span>
-                        </button>
-                    </div>
-
-                    <!-- Certificate 9 -->
-                    <div class="certificate-card">
-                        <h3 class="cert-title">DevNet Associate</h3>
-                        <p class="cert-meta"><strong>Issued by: </strong>Cisco Networking Academy</p>
-                        <p class="cert-meta"><strong>Issued Date: </strong>April 27, 2024</p>
-                        <button class="bouncy-button spam-button">
-                            <span class="shadow"></span>
-                            <span class="edge spam-button"></span>
-                            <span class="front spam-button">Not Available</span>
-                        </button>
-                    </div>
-
+        <section id="certifications" class="section" data-reveal>
+            <div class="section-head">
+                <div class="section-head-text">
+                    <p class="eyebrow">[ 01 ] Credentials</p>
+                    <h2 class="section-title">Certifications</h2>
                 </div>
+                <button type="button" id="toggleViewBtn" class="view-toggle">
+                    <i class="fas fa-border-all" aria-hidden="true"></i> Grid view
+                </button>
+            </div>
+
+            <div class="cert-scroller-wrap" id="certWrap">
+                <button type="button" class="scroll-nav prev" id="certPrev" aria-label="Scroll certifications left">
+                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                </button>
+
+                <ul class="cert-scroller" id="certScroller">
+                    <li class="cert-card">
+                        <div class="cert-card-top">
+                            <h3 class="cert-title">PMI Project Management Ready™</h3>
+                            <p class="cert-meta">Project Management Institute · Mar 2025</p>
+                        </div>
+                        <a href="https://www.credly.com/badges/8c97d98a-0c22-408c-886b-a98ca14de608/public_url" target="_blank" rel="noopener noreferrer" class="cert-link">
+                            Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+
+                    <li class="cert-card">
+                        <div class="cert-card-top">
+                            <h3 class="cert-title">IT Specialist — Cybersecurity</h3>
+                            <p class="cert-meta">Certiport · Mar 2025</p>
+                        </div>
+                        <a href="https://www.credly.com/badges/78734f13-eb2d-48f0-935a-4ec04f656fe6/public_url" target="_blank" rel="noopener noreferrer" class="cert-link">
+                            Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+
+                    <li class="cert-card">
+                        <div class="cert-card-top">
+                            <h3 class="cert-title">CCNA: Enterprise Networking, Security &amp; Automation</h3>
+                            <p class="cert-meta">Cisco Networking Academy · Dec 2023</p>
+                        </div>
+                        <a href="https://www.credly.com/badges/916c8abb-e10d-4150-930b-2e5bf1f26448/public_url" target="_blank" rel="noopener noreferrer" class="cert-link">
+                            Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+
+                    <li class="cert-card">
+                        <div class="cert-card-top">
+                            <h3 class="cert-title">CCNA: Switching, Routing &amp; Wireless Essentials</h3>
+                            <p class="cert-meta">Cisco Networking Academy · Sep 2023</p>
+                        </div>
+                        <a href="https://www.credly.com/badges/1ac06572-09dd-43b7-ad16-1601178c3c58/public_url" target="_blank" rel="noopener noreferrer" class="cert-link">
+                            Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+
+                    <li class="cert-card">
+                        <div class="cert-card-top">
+                            <h3 class="cert-title">IT Specialist — Networking</h3>
+                            <p class="cert-meta">Certiport · Jul 2023</p>
+                        </div>
+                        <a href="https://www.credly.com/badges/0c4ce166-8e80-4850-a362-10b281d6f416/public_url" target="_blank" rel="noopener noreferrer" class="cert-link">
+                            Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+
+                    <li class="cert-card">
+                        <div class="cert-card-top">
+                            <h3 class="cert-title">CCNA: Introduction to Networks</h3>
+                            <p class="cert-meta">Cisco Networking Academy · Apr 2023</p>
+                        </div>
+                        <a href="https://www.credly.com/badges/a76f9acb-a43b-4ba3-8099-70e938057c22/public_url" target="_blank" rel="noopener noreferrer" class="cert-link">
+                            Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+
+                    <li class="cert-card">
+                        <div class="cert-card-top">
+                            <h3 class="cert-title">HSK (Level 4)</h3>
+                            <p class="cert-meta">Confucius Institute Headquarters · Sep 2019</p>
+                        </div>
+                        <button type="button" class="cert-link cert-link-btn" onclick="window.open('assets/files/HSK4.pdf', '_blank')">
+                            View <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                        </button>
+                    </li>
+
+                    <li class="cert-card">
+                        <div class="cert-card-top">
+                            <h3 class="cert-title">NDG Linux Essentials</h3>
+                            <p class="cert-meta">Cisco Networking Academy · May 2024</p>
+                        </div>
+                        <span class="cert-badge-pending">In progress</span>
+                    </li>
+
+                    <li class="cert-card">
+                        <div class="cert-card-top">
+                            <h3 class="cert-title">DevNet Associate</h3>
+                            <p class="cert-meta">Cisco Networking Academy · Apr 2024</p>
+                        </div>
+                        <span class="cert-badge-pending">In progress</span>
+                    </li>
+                </ul>
+
+                <button type="button" class="scroll-nav next" id="certNext" aria-label="Scroll certifications right">
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                </button>
             </div>
         </section>
 
-        <!-- <section id="journey" class="fade-in full-height-section">
-            <div class="journey-header">
-                <h2 class="section-title">My Journey</h2>
-                <img src="assets/img/snoopy/snoopy_journey.png" alt="Journey" class="journey-picture">
-            </div>
-
-            <div class="journey-timeline">
-
-                <div class="timeline-year-group" data-year="2025">
-                    <div class="year-marker">
-                        <h3 class="timeline-year">2025</h3>
-                    </div>
-                    <div class="timeline-events">
-
-                        <div class="timeline-item primary">
-                            <div class="timeline-content">
-                                <h4 class="event-title">Graduated with Bachelor's Degree at FEU TECH</h4>
-                                <span class="event-date">December</span>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item secondary">
-                            <div class="timeline-content">
-                                <h4 class="event-title">Intern 2 at FEU TECH ISDT</h4>
-                                <span class="event-date">September - November</span>
-                                <button class="bouncy-button primary margin-end" onclick="window.open('assets/files/intern2_COC.pdf', '_blank')">
-                                    <span class="shadow"></span>
-                                    <span class="edge"></span>
-                                    <span class="front"><i class="fas fa-file-pdf"></i> Certificate</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item tertiary">
-                            <div class="timeline-content">
-                                <h4 class="event-title">Intern 1 at FEU TECH ISDT</h4>
-                                <span class="event-date">April - July</span>
-                                <button class="bouncy-button primary margin-end" onclick="window.open('assets/files/intern1_COC.pdf', '_blank')">
-                                    <span class="shadow"></span>
-                                    <span class="edge"></span>
-                                    <span class="front"><i class="fas fa-file-pdf"></i> Certificate</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+        <section id="work" class="section" data-reveal>
+            <div class="section-head">
+                <div class="section-head-text">
+                    <p class="eyebrow">[ 02 ] Selected work</p>
+                    <h2 class="section-title">Projects</h2>
                 </div>
-
-                <div class="timeline-year-group" data-year="2021">
-                    <div class="year-marker">
-                        <h3 class="timeline-year">2021</h3>
-                    </div>
-                    <div class="timeline-events">
-                        <div class="timeline-item primary">
-                            <div class="timeline-content">
-                                <h4 class="event-title">Started College at FEU TECH</h4>
-                                <span class="event-date">September</span>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item secondary">
-                            <div class="timeline-content">
-                                <h4 class="event-title">Graduated High School at Philippine Cultural College</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <section id="projects" class="fade-in projects-section full-height-section">
-            <div class="proj-header">
-                <h2 class="section-title">Projects</h2>
-                <img src="assets/img/snoopy/snoopy_project.jpg" alt="Projects" class="projects-picture">
             </div>
 
             <div class="projects">
-                <!-- Project 1 -->
-                <article class="project-card project-preview-card"
-                    data-title="Capstone Compass"
-                    data-description="This is our final project for Project Management. We created a thesis progress tracker that lets students and advisers monitor progress and includes a live chat feature for easier communication and updates."
-                    data-tech="HTML|CSS|TailwindCSS|JavaScript|Laravel|MySQL"
-                    data-repo="https://github.com/senzj/UniCon"
-                    data-demo=""
-                    data-gallery="assets/img/capstone_compass/1.png">
-                    <button type="button" class="project-open" aria-label="Open project details for Capstone Compass">
-                        <img src="assets/img/capstone_compass/1.png" alt="Capstone Compass screenshot" class="project-image">
-                        <h3 class="project-title">Capstone Compass</h3>
-                    </button>
-                </article>
 
-                <!-- Project 2 -->
-                <article class="project-card project-preview-card"
-                    data-title="Trailventure"
-                    data-description="This is our E-commerce final project focused on selling camping equipment. It includes product browsing, add-to-cart, checkout, and an admin panel for product management."
-                    data-tech="HTML|CSS|JavaScript|ReactJS|TailwindCSS|Firebase"
-                    data-repo="https://github.com/senzj/Trailventure"
-                    data-demo=""
-                    data-gallery="assets/img/trailventure/1.png">
-                    <button type="button" class="project-open" aria-label="Open project details for Trailventure">
-                        <img src="assets/img/trailventure/1.png" alt="Trailventure screenshot" class="project-image">
-                        <h3 class="project-title">Trailventure</h3>
-                    </button>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="project-card project-preview-card"
-                    data-title="Expense Tracker"
-                    data-description="Developed using Python and Tkinter, this project provides a clean GUI for tracking personal expenses with full CRUD operations and useful spending statistics."
-                    data-tech="Python|SQLite"
-                    data-repo="https://github.com/senzj/Expense-Tracker"
-                    data-demo=""
-                    data-gallery="assets/img/expense_tracker/1.png">
-                    <button type="button" class="project-open" aria-label="Open project details for Expense Tracker">
-                        <img src="assets/img/expense_tracker/1.png" alt="Expense Tracker screenshot" class="project-image">
-                        <h3 class="project-title">Expense Tracker</h3>
-                    </button>
-                </article>
-
-                <!-- Project 4 -->
-                <article class="project-card project-preview-card"
+                <article class="project-card project-preview-card" data-reveal data-tilt
                     data-title="Grocery Store POS System"
-                    data-description="A Point-of-Sale and Delivery Management system for a grocery business with delivery tracking, inventory management, delivery staff tools, and a dashboard for sales and order insights."
-                    data-tech="HTML|CSS|JavaScript|TailwindCSS|Livewire|Laravel|MySQL"
+                    data-description="A point-of-sale and delivery management system for a grocery business: delivery tracking, inventory management, tools for delivery staff, and a dashboard for sales and order insight. Built solo end-to-end, including a custom weighted-average-cost restock flow and a hand-built canvas image cropper after CropperJS broke."
+                    data-tech="Laravel|Livewire|MySQL|TailwindCSS|JavaScript"
                     data-repo="https://github.com/senzj/MVS"
                     data-demo=""
                     data-gallery="assets/img/MVS/1.png,assets/img/MVS/2.png,assets/img/MVS/3.png,assets/img/MVS/4.png,assets/img/MVS/5.png,assets/img/MVS/6.png,assets/img/MVS/7.png,assets/img/MVS/8.png,assets/img/MVS/9.png,assets/img/MVS/10.png,assets/img/MVS/11.png">
                     <button type="button" class="project-open" aria-label="Open project details for Grocery Store POS System">
-                        <img src="assets/img/MVS/4.png" alt="Grocery Store POS System screenshot" class="project-image">
-                        <h3 class="project-title">Grocery Store POS System</h3>
+                        <img src="assets/img/MVS/4.png" alt="Grocery Store POS System screenshot" class="project-image" loading="lazy">
+                        <span class="project-card-body">
+                            <h3 class="project-title">Grocery Store POS System</h3>
+                            <p class="project-blurb">POS &amp; delivery management, built solo.</p>
+                        </span>
                     </button>
                 </article>
 
-                <!-- Project 5 -->
-                <article class="project-card project-preview-card"
-                    data-title="DOH EAMC EYE CENTER PACS"
-                    data-description="Our internship project for the Department of Health - East Avenue Medical Center Eye Center. It is a PACS platform for storing, managing, viewing, and exporting medical images and videos."
-                    data-tech="HTML|CSS|JavaScript|TailwindCSS|Livewire|Laravel|MySQL"
+                <article class="project-card project-preview-card" data-reveal data-tilt
+                    data-title="DOH EAMC Eye Center PACS"
+                    data-description="Internship project for the Department of Health — East Avenue Medical Center Eye Center. A PACS platform for storing, managing, viewing, and exporting medical images and video for clinical use."
+                    data-tech="Laravel|Livewire|MySQL|TailwindCSS|JavaScript"
                     data-repo=""
                     data-demo=""
                     data-gallery="assets/img/PACS/1.png,assets/img/PACS/2.png,assets/img/PACS/3.png,assets/img/PACS/4.png,assets/img/PACS/5.png,assets/img/PACS/6.png">
-                    <button type="button" class="project-open" aria-label="Open project details for DOH EAMC EYE CENTER PACS">
-                        <img src="assets/img/PACS/2.png" alt="DOH EAMC EYE CENTER PACS screenshot" class="project-image">
-                        <h3 class="project-title">DOH EAMC EYE CENTER PACS</h3>
+                    <button type="button" class="project-open" aria-label="Open project details for DOH EAMC Eye Center PACS">
+                        <img src="assets/img/PACS/2.png" alt="DOH EAMC Eye Center PACS screenshot" class="project-image" loading="lazy">
+                        <span class="project-card-body">
+                            <h3 class="project-title">DOH EAMC Eye Center PACS</h3>
+                            <p class="project-blurb">Medical image archive, built during internship.</p>
+                        </span>
                     </button>
                 </article>
 
-                <!-- Project 6 -->
-                <article class="project-card project-preview-card"
-                    data-title="Bleep"
-                    data-description="A personal Laravel Chirper-Twitter style web app with authentication, posting, following, liking, and a simple social feed."
-                    data-tech="HTML|CSS|JavaScript|TailwindCSS|Laravel|MySQL"
-                    data-repo="https://github.com/senzj/bleep"
-                    data-demo="https://bleep.zya.me/?i=1"
-                    data-gallery="assets/img/bleep/1.png,assets/img/bleep/2.png">
-                    <button type="button" class="project-open" aria-label="Open project details for Bleep">
-                        <img src="assets/img/bleep/1.png" alt="Bleep screenshot" class="project-image">
-                        <h3 class="project-title">Bleep</h3>
-                    </button>
-                </article>
-
-                <!-- Project 7 -->
-                <article class="project-card project-preview-card"
+                <article class="project-card project-preview-card" data-reveal data-tilt
                     data-title="Laboratory Information Management System"
-                    data-description="A web-based laboratory information management system designed to streamline data handling and reporting processes in a laboratory environment."
-                    data-tech="HTML|CSS|JavaScript|PHP|TailwindCSS|Laravel|MySQL"
+                    data-description="A web-based laboratory information management system built to streamline data handling and reporting in a laboratory environment — from sample intake to result reporting."
+                    data-tech="Laravel|Livewire|MySQL|TailwindCSS|PHP"
                     data-repo=""
                     data-demo=""
                     data-gallery="assets/img/LIMS/1.png,assets/img/LIMS/2.png,assets/img/LIMS/3.png,assets/img/LIMS/4.png,assets/img/LIMS/5.png,assets/img/LIMS/6.png,assets/img/LIMS/7.png,assets/img/LIMS/8.png,assets/img/LIMS/9.png,assets/img/LIMS/10.png,assets/img/LIMS/11.png">
                     <button type="button" class="project-open" aria-label="Open project details for Laboratory Information Management System">
-                        <img src="assets/img/LIMS/8.png" alt="LIMS screenshot" class="project-image">
-                        <h3 class="project-title">Laboratory Information Management System</h3>
+                        <img src="assets/img/LIMS/8.png" alt="Laboratory Information Management System screenshot" class="project-image" loading="lazy">
+                        <span class="project-card-body">
+                            <h3 class="project-title">Lab Information Management System</h3>
+                            <p class="project-blurb">Sample intake to result reporting.</p>
+                        </span>
                     </button>
                 </article>
-            </div>
 
+                <article class="project-card project-preview-card" data-reveal data-tilt
+                    data-title="FitGroove"
+                    data-description="An offline-first Flutter fitness app. Local persistence with Drift/SQLite, Riverpod for state, a five-tab shell with StatefulShellRoute, and a workout recommendation engine that scores routines. Custom animated widgets throughout, including a curved bottom nav with a CustomPainter notch."
+                    data-tech="Flutter|Dart|Drift/SQLite|Riverpod|GoRouter"
+                    data-repo="https://github.com/senzj/project8"
+                    data-demo=""
+                    data-gallery="assets/img/fitgroove/1.jpg,assets/img/fitgroove/2.jpg,assets/img/fitgroove/3.jpg,assets/img/fitgroove/4.jpg,assets/img/fitgroove/5.jpg,assets/img/fitgroove/6.jpg,assets/img/fitgroove/7.jpg,assets/img/fitgroove/8.jpg,assets/img/fitgroove/9.jpg,assets/img/fitgroove/10.jpg,assets/img/fitgroove/11.jpg,assets/img/fitgroove/12.jpg,assets/img/fitgroove/13.jpg">
+                    <button type="button" class="project-open" aria-label="Open project details for FitGroove">
+                        <img src="assets/img/fitgroove/1.jpg" alt="FitGroove screenshot" class="project-image" loading="lazy">
+                        <span class="project-card-body">
+                            <h3 class="project-title">FitGroove</h3>
+                            <p class="project-blurb">Offline-first Flutter fitness tracker.</p>
+                        </span>
+                    </button>
+                </article>
+
+                <article class="project-card project-preview-card" data-reveal data-tilt
+                    data-title="Capstone Compass"
+                    data-description="Final project for Project Management. A thesis progress tracker that lets students and advisers monitor progress together, with a live chat feature for direct communication and updates."
+                    data-tech="Laravel|MySQL|TailwindCSS|JavaScript"
+                    data-repo="https://github.com/senzj/UniCon"
+                    data-demo=""
+                    data-gallery="assets/img/capstone_compass/1.png">
+                    <button type="button" class="project-open" aria-label="Open project details for Capstone Compass">
+                        <img src="assets/img/capstone_compass/1.png" alt="Capstone Compass screenshot" class="project-image" loading="lazy">
+                        <span class="project-card-body">
+                            <h3 class="project-title">Capstone Compass</h3>
+                            <p class="project-blurb">Thesis progress tracker with live chat.</p>
+                        </span>
+                    </button>
+                </article>
+
+                <article class="project-card project-preview-card" data-reveal data-tilt
+                    data-title="Trailventure"
+                    data-description="An e-commerce project for camping equipment: product browsing, cart, checkout, and an admin panel for product management."
+                    data-tech="React|Firebase|TailwindCSS|JavaScript"
+                    data-repo="https://github.com/senzj/Trailventure"
+                    data-demo=""
+                    data-gallery="assets/img/trailventure/1.png,assets/img/trailventure/2.png,assets/img/trailventure/3.png,assets/img/trailventure/4.png,assets/img/trailventure/5.png,assets/img/trailventure/6.png,assets/img/trailventure/7.png,assets/img/trailventure/8.png,assets/img/trailventure/9.png">
+                    <button type="button" class="project-open" aria-label="Open project details for Trailventure">
+                        <img src="assets/img/trailventure/1.png" alt="Trailventure screenshot" class="project-image" loading="lazy">
+                        <span class="project-card-body">
+                            <h3 class="project-title">Trailventure</h3>
+                            <p class="project-blurb">E-commerce storefront &amp; admin panel.</p>
+                        </span>
+                    </button>
+                </article>
+
+                <article class="project-card project-preview-card" data-reveal data-tilt
+                    data-title="Bleep"
+                    data-description="A personal Laravel social app in the vein of Chirper/Twitter: authentication, posting, following, liking, and a simple feed."
+                    data-tech="Laravel|MySQL|TailwindCSS|JavaScript"
+                    data-repo="https://github.com/senzj/bleep"
+                    data-demo="https://bleep.zya.me/?i=1"
+                    data-gallery="assets/img/bleep/1.png,assets/img/bleep/2.png">
+                    <button type="button" class="project-open" aria-label="Open project details for Bleep">
+                        <img src="assets/img/bleep/1.png" alt="Bleep screenshot" class="project-image" loading="lazy">
+                        <span class="project-card-body">
+                            <h3 class="project-title">Bleep</h3>
+                            <p class="project-blurb">Twitter-style social app, solo build.</p>
+                        </span>
+                    </button>
+                </article>
+
+                <article class="project-card project-preview-card" data-reveal data-tilt
+                    data-title="Expense Tracker"
+                    data-description="A desktop expense tracker with a clean Tkinter GUI: full CRUD for entries and simple spending statistics."
+                    data-tech="Python|Tkinter|SQLite"
+                    data-repo="https://github.com/senzj/Expense-Tracker"
+                    data-demo=""
+                    data-gallery="assets/img/expense_tracker/1.png">
+                    <button type="button" class="project-open" aria-label="Open project details for Expense Tracker">
+                        <img src="assets/img/expense_tracker/1.png" alt="Expense Tracker screenshot" class="project-image" loading="lazy">
+                        <span class="project-card-body">
+                            <h3 class="project-title">Expense Tracker</h3>
+                            <p class="project-blurb">Desktop CRUD app with spending stats.</p>
+                        </span>
+                    </button>
+                </article>
+
+            </div>
         </section>
 
-        <section id="contact" class="fade-in full-height-section">
-            <div class="contact-header">
-                <img src="assets/img/snoopy/snoopy_contact.jpg" alt="Contact me" class="contact-picture">
-                <h2 class="section-title">Contact Me</h2>
+        <section id="experience" class="section" data-reveal>
+            <div class="section-head">
+                <div class="section-head-text">
+                    <p class="eyebrow">[ 03 ] History</p>
+                    <h2 class="section-title">Experience</h2>
+                </div>
             </div>
-            <div class="button-container">
-              
-              <!-- <button class="bouncy-button quinary" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=janseeeenleeee@gmail.com', '_blank')">
-                <span class="shadow"></span>
-                <span class="edge"></span>
-                <span class="front"><i class="fab fa-google"></i> Gmail Me</span>
-              </button> -->
 
-              <button class="bouncy-button secondary" onclick="window.location.href='mailto:janseeeenleeee@gmail.com'">
-                  <span class="shadow"></span>
-                  <span class="edge"></span>
-                  <span class="front"><i class="fas fa-envelope"></i> Email</span>
-              </button>
+            <ol class="timeline">
+                <li class="timeline-item" data-reveal>
+                    <span class="timeline-marker"></span>
+                    <div class="timeline-date">Jan 2026</div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">Graduated — BSIT Web and Mobile Application, FEU Institute of Technology</h3>
+                        <p class="timeline-desc">Wrapped up my academic degree.</p>
+                    </div>
+                </li>
 
-              <button class="bouncy-button tertiary" onclick="window.open('https://github.com/senzj', '_blank')">
-                  <span class="shadow"></span>
-                  <span class="edge"></span>
-                  <span class="front"><i class="fab fa-github"></i> GitHub</span>
-              </button>
+                <li class="timeline-item" data-reveal>
+                    <span class="timeline-marker"></span>
+                    <div class="timeline-date">Sep – Dec 2025</div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">Intern II — FEU TECH ISDT</h3>
+                        <p class="timeline-desc">Continued on the DOH EAMC Eye Center PACS platform: storing, managing, viewing, and exporting medical images and video for clinical use.</p>
+                        <button type="button" class="timeline-link" onclick="window.open('assets/files/cert/LEE_COC2.png', '_blank')">
+                            Certificate <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </li>
 
-              <button class="bouncy-button primary" onclick="window.open('https://linkedin.com/in/jesusjansenlee', '_blank')">
-                  <span class="shadow"></span>
-                  <span class="edge"></span>
-                  <span class="front"><i class="fab fa-linkedin"></i> LinkedIn</span>
-              </button>
+                <li class="timeline-item" data-reveal>
+                    <span class="timeline-marker"></span>
+                    <div class="timeline-date">Apr – Jul 2025</div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">Intern I — FEU TECH ISDT</h3>
+                        <p class="timeline-desc">Started on the DOH EAMC Eye Center PACS project — my first exposure to building software for a real clinical environment.</p>
+                        <button type="button" class="timeline-link" onclick="window.open('assets/files/cert/LEE_COC1.png', '_blank')">
+                            Certificate <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </li>
+            </ol>
+        </section>
 
-              <button class="bouncy-button quarternary" onclick="window.open('https://www.facebook.com/seeeeeeenz', '_blank')">
-                <span class="shadow"></span>
-                <span class="edge"></span>
-                <span class="front"><i class="fab fa-facebook"></i> Facebook</span>
-              </button>
-              
+        <section id="contact" class="section section-contact" data-reveal>
+            <div class="section-head">
+                <div class="section-head-text">
+                    <p class="eyebrow">[ 04 ] Get in touch</p>
+                    <h2 class="section-title">Let's talk</h2>
+                </div>
+            </div>
+
+            <p class="contact-lede">Open to full-stack roles, freelance builds, or just a conversation about a system you're stuck on.</p>
+
+            <button type="button" class="email-copy" id="emailCopy" data-email="janseeeenleeee@gmail.com">
+                <span class="email-text">janseeeenleeee@gmail.com</span>
+                <span class="email-icon"><i class="fas fa-copy" aria-hidden="true"></i></span>
+            </button>
+
+            <div class="social-row">
+                <a class="social-link" href="mailto:janseeeenleeee@gmail.com" aria-label="Email Jansen">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Email
+                </a>
+                <a class="social-link" href="https://github.com/senzj" target="_blank" rel="noopener noreferrer" aria-label="Jansen's GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i> GitHub
+                </a>
+                <a class="social-link" href="https://linkedin.com/in/jesusjansenlee" target="_blank" rel="noopener noreferrer" aria-label="Jansen's LinkedIn">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+                </a>
+                <a class="social-link" href="https://www.facebook.com/seeeeeeenz" target="_blank" rel="noopener noreferrer" aria-label="Jansen's Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i> Facebook
+                </a>
             </div>
         </section>
 
-        <section id="support" class="fade-in full-height-section">
-            <div class="support-header">
-                <img src="assets/img/snoopy/snoopy_support.jpg" alt="Support me" class="support-picture">
-                <h2 class="section-title">Support Me</h2>
-            </div>
+    </main>
 
-            <a href='https://ko-fi.com/W4L222FTY3' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
-        </section>
-
-        <footer>
-            <small>&copy; <span id="footeryear"></span> Jesus Jansen Lee</small>
-        </footer>
-    </div>
+    <footer class="site-footer">
+        <small>&copy; <span id="footeryear"></span> Jesus Jansen Lee</small>
+        <a class="footer-support" href="https://ko-fi.com/W4L222FTY3" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-mug-hot" aria-hidden="true"></i> Support
+        </a>
+    </footer>
 
     <div class="project-modal" id="projectModal" aria-hidden="true">
         <div class="project-modal-backdrop" data-close-modal></div>
@@ -484,7 +502,6 @@
         </div>
     </div>
 
-    <!-- script -->
     <script src="resources/js/index.js"></script>
 
 </body>

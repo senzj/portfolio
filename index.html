@@ -104,18 +104,29 @@
                         <span class="console-dot"></span>
                         <span class="console-path">jansen@portfolio:~</span>
                     </div>
-                    <div class="console-body" id="consoleBody" tabindex="0" aria-label="Interactive terminal. Type help and press enter.">
+                    <div class="console-body" id="consoleBody" tabindex="0" aria-label="Interactive terminal. Tap to type, or press enter after tabbing here.">
                         <p><span class="console-prompt">jansen@portfolio:~$</span> whoami</p>
                         <p class="console-out">jesus_jansen_lee — full-stack dev</p>
                         <p><span class="console-prompt">jansen@portfolio:~$</span> cat stack.txt</p>
                         <p class="console-out">Laravel · PHP · Livewire · Flutter</p>
                         <p><span class="console-prompt">jansen@portfolio:~$</span> ./ship.sh --project pos-system</p>
                         <p class="console-out console-success">✓ deployed</p>
-                        <p class="console-hint">type <b>help</b> and press enter · <b>tab</b>/swipe to autocomplete</p>
+                        <p class="console-hint">tap here and type · <b>enter</b> to run · <b>tab</b>/swipe to autocomplete</p>
                         <p class="console-input-line">
                             <span class="console-prompt">jansen@portfolio:~$</span>
                             <span class="console-typed" id="consoleTyped"></span><span class="console-caret" id="consoleCaret"></span><span class="console-ghost" id="consoleGhost"></span><span class="console-hint-key" id="consoleHintKey"></span>
                         </p>
+                        <input
+                            type="text"
+                            id="consoleInput"
+                            class="console-hidden-input"
+                            autocomplete="off"
+                            autocapitalize="off"
+                            autocorrect="off"
+                            spellcheck="false"
+                            inputmode="text"
+                            enterkeyhint="send"
+                            aria-label="Terminal command input">
                     </div>
                 </div>
             </div>

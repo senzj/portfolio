@@ -200,6 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const history = [];
         const consoleGhost = document.getElementById("consoleGhost");
         const consoleHintKey = document.getElementById("consoleHintKey");
+        const consoleInput = document.getElementById("consoleInput");
 
         const printLine = (html) => {
             const p = document.createElement("p");
@@ -343,6 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const renderBuffer = () => {
             consoleTyped.textContent = buffer;
+            if (consoleInput && consoleInput.value !== buffer) consoleInput.value = buffer;
             const suggestion = getSuggestion(buffer);
             if (consoleGhost) consoleGhost.textContent = suggestion;
             if (consoleHintKey) consoleHintKey.classList.toggle("show", Boolean(suggestion));
@@ -394,7 +396,11 @@ document.addEventListener("DOMContentLoaded", () => {
             scrollToBottom();
         };
 
-        consoleBody.addEventListener("keydown", (e) => {
+        // Special keys: work from a real <input> so mobile virtual keyboards
+        // can dispatch Enter/Backspace too, not just physical keyboards.
+        const target = consoleInput || consoleBody;
+
+        target.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
                 e.preventDefault();
                 runCommand(buffer);
@@ -403,12 +409,16 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (e.key === "Tab") {
                 e.preventDefault();
                 acceptSuggestion();
-            } else if (e.key === "Backspace") {
-                e.preventDefault();
-                buffer = buffer.slice(0, -1);
-                renderBuffer();
             } else if (e.key === "ArrowRight") {
-                if (buffer.length === 0 || getSuggestion(buffer)) {
+                if (consoleInput) {
+                    // Only hijack ArrowRight when the caret is already at the end
+                    // of the typed text, so normal text-cursor movement still works.
+                    const atEnd = consoleInput.selectionStart === buffer.length;
+                    if (atEnd && getSuggestion(buffer)) {
+                        e.preventDefault();
+                        acceptSuggestion();
+                    }
+                } else if (buffer.length === 0 || getSuggestion(buffer)) {
                     e.preventDefault();
                     acceptSuggestion();
                 }
@@ -429,11 +439,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     buffer = "";
                 }
                 renderBuffer();
-            } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+            } else if (!consoleInput && e.key === "Backspace") {
+                // Fallback path only used if the hidden input isn't present.
+                e.preventDefault();
+                buffer = buffer.slice(0, -1);
+                renderBuffer();
+            } else if (!consoleInput && e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
                 buffer += e.key;
                 renderBuffer();
             }
         });
+
+        // Actual character entry (letters, backspace, paste, mobile
+        // autocorrect/predictive text) — the 'input' event is what mobile
+        // on-screen keyboards reliably fire, unlike keydown for every key.
+        if (consoleInput) {
+            consoleInput.addEventListener("input", () => {
+                buffer = consoleInput.value;
+                renderBuffer();
+            });
+        }
 
         // Swipe-right-to-accept on touch devices
         let touchStartX = 0;
@@ -448,11 +473,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const dy = e.changedTouches[0].clientY - touchStartY;
             if (dx > 40 && Math.abs(dy) < 30 && getSuggestion(buffer)) {
                 acceptSuggestion();
-                consoleBody.focus();
             }
         }, { passive: true });
 
-        consoleBody.addEventListener("click", () => consoleBody.focus());
+        // Tapping/clicking or tabbing into the terminal focuses the real
+        // input so mobile browsers show the on-screen keyboard.
+        const focusConsoleInput = () => (consoleInput || consoleBody).focus();
+        consoleBody.addEventListener("click", focusConsoleInput);
+        consoleBody.addEventListener("focus", focusConsoleInput);
     }
 
     // ---------- Project modal ----------
